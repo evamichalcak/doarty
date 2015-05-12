@@ -16,6 +16,7 @@ function cron() {
 		rawData.map(generateImages);
 		rawData.map(combineDescription);
 		rawDate.map(sanitizeDate);
+		rawData.map(absoluteLinks)
 	}
 
 	saveData(allData) {

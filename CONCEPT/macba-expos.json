@@ -1,0 +1,125 @@
+{
+    "_id": "macba_expos",
+    "selectors": [
+        {
+            "multiple": true,
+            "parentSelectors": [
+                "_root"
+            ],
+            "selector": "li.box",
+            "delay": "",
+            "type": "SelectorElement",
+            "id": "event"
+        },
+        {
+            "regex": "",
+            "multiple": false,
+            "parentSelectors": [
+                "event_link"
+            ],
+            "selector": "h1",
+            "delay": "",
+            "type": "SelectorText",
+            "id": "event_category"
+        },
+        {
+            "regex": "",
+            "multiple": false,
+            "parentSelectors": [
+                "event_link"
+            ],
+            "selector": "div.subtit > h2",
+            "delay": "",
+            "type": "SelectorText",
+            "id": "event_title1"
+        },
+        {
+            "regex": "",
+            "multiple": false,
+            "parentSelectors": [
+                "event_link"
+            ],
+            "selector": "div.subtit em",
+            "delay": "",
+            "type": "SelectorText",
+            "id": "event_title2"
+        },
+        {
+            "multiple": false,
+            "parentSelectors": [
+                "event_link"
+            ],
+            "selector": "div.row.m10 img",
+            "delay": "",
+            "downloadImage": false,
+            "type": "SelectorImage",
+            "id": "event_image"
+        },
+        {
+            "regex": "",
+            "multiple": false,
+            "parentSelectors": [
+                "event_link"
+            ],
+            "selector": "div.text_box > p",
+            "delay": "",
+            "type": "SelectorText",
+            "id": "event_text"
+        },
+        {
+            "regex": "",
+            "multiple": false,
+            "parentSelectors": [
+                "event"
+            ],
+            "selector": "span.slash",
+            "delay": "",
+            "type": "SelectorText",
+            "id": "event_start"
+        },
+        {
+            "regex": "",
+            "multiple": false,
+            "parentSelectors": [
+                "event"
+            ],
+            "selector": "span:nth-of-type(2)",
+            "delay": "",
+            "type": "SelectorText",
+            "id": "event_end"
+        },
+        {
+            "regex": "",
+            "multiple": false,
+            "parentSelectors": [
+                "event"
+            ],
+            "selector": "dd:nth-of-type(2)",
+            "delay": "",
+            "type": "SelectorText",
+            "id": "event_venue"
+        },
+        {
+            "multiple": false,
+            "parentSelectors": [
+                "event"
+            ],
+            "selector": "div.img a",
+            "delay": "2000",
+            "type": "SelectorLink",
+            "id": "event_link"
+        },
+        {
+            "regex": "",
+            "multiple": false,
+            "parentSelectors": [
+                "event_link"
+            ],
+            "selector": "div.logo a",
+            "delay": "",
+            "type": "SelectorText",
+            "id": "event_organizer"
+        }
+    ],
+    "startUrl": "http://www.macba.cat/es/exposiciones"
+}

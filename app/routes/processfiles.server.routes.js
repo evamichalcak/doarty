@@ -2,8 +2,8 @@
 
 module.exports = function(app) {
 	// Root routing
-	var scraper = require('../../app/controllers/scraper/scraper.server.controller');
-	app.route('/scrape').get(scraper.scrape);
+	var processfiles = require('../../app/controllers/processfiles/processfiles.server.controller');
+	app.route('/processfiles').get(processfiles.process);
 	// var users = require('../../app/controllers/users.server.controller');
 	// app.route('/users/me2').get(users.me);
 };
