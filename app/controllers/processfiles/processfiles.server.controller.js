@@ -87,6 +87,64 @@ exports.process = function(req, res) {
 			}
 			return tempArray;
 		},
+        isDoubleDate: function(dateString) {
+            // determines wether a date is a double date by checking if the number of dashes is odd
+            // count number of dashes with split
+            var dashes = (dateString.split("-").length - 1);
+            if ((dashes % 2) == 1) {
+                return 1;
+            } else {
+                return -1;
+            }
+        },
+        isDoubleDateLetters: function(dateString, locale) {
+            // determines wether a date is a double date by checking if the number of dashes is odd or for keywords depending on locale
+            // check for dashes
+            if (isDoubleDate(dateString)) {
+                return getMiddleChar(dateString, '-')
+            } else {
+                // switch (locale) {
+                //     case('es_ES'): 
+                //     case('ca_ES'): 
+                //         return dateString.IndexOf(' al ');
+                //         break;
+                //     case('en_US'): 
+                //     case('en_GB'): 
+                //         return dateString.IndexOf(' to ');
+                //         break;
+                //     default:
+                //     return -1;
+                // }
+                return dateString.IndexOf(' al ');
+            }
+        },
+        getMiddleChar: function(Str, chr) {
+            // for a given character in a string, find all occurences and return the index of the middle occurence if odd, and first occurenc of second half if even
+            var indices = [];
+            var pos;
+            // find occurrences indices
+            for(var i=0; i<str.length;i++) {
+                if (str[i] === chr) indices.push(i);
+            }
+            // find middle
+            if (indices.length > 1) {
+                pos = Math.floor(indices.length/2);
+                return indices[pos];
+            } else {
+                return -1;
+            }
+        },
+        cleanDoubelDate: function(str) {
+            // splits a string in two at the middle occurence of a dash
+            var dates = [];
+            var pos;
+            pos = helpers.getMiddleChar(str, '-');
+            dates = str.split(pos);
+        },
+        cleanDoubelDateLetters: function(str) {
+            // splits a string in two at the index found by isDoubleDateLetters
+
+        },
 		extractDate: function(start_date, end_date) {
 			/*
 
@@ -113,7 +171,7 @@ scraper specials:
 double date:
 -dash appears only once or at least 3 times
 -letters are present and one dash appears (1-3 de marzo)
--letters are present and 2 months appear (del 1 de marzo al 3 de abril) -> split by "al", "hasta", "fins", "until", "to"
+-letters are present and 2 months appear (del 1 de marzo al 3 de abril) -> split by " al ", " hasta ", " fins ", " until ", " to "
 
 single dates, no letters:
 -split by either ".", "/" or "-"
