@@ -87,23 +87,30 @@ exports.process = function(req, res) {
 			}
 			return tempArray;
 		},
-        isDoubleDate: function(dateString) {
-            // determines wether a date is a double date by checking if the number of dashes is odd
-            // count number of dashes with split
-            var dashes = (dateString.split("-").length - 1);
-            if ((dashes % 2) == 1) {
-                return 1;
+        getMiddleChar: function(str, chr) { //tested
+            // for a given character in a string, find all occurences and return the index of the middle occurence if odd, and first occurenc of second half if even
+            var indices = [];
+            var pos;
+            // find occurrences indices
+            for(var i=0; i<str.length;i++) {
+                if (str[i] === chr) indices.push(i);
+            }
+            // find middle
+            if (indices.length > 0) {
+                pos = Math.floor(indices.length/2);
+                return indices[pos];
             } else {
                 return -1;
             }
         },
-        isDoubleDateLetters: function(dateString, locale) {
-            // determines wether a date is a double date by checking if the number of dashes is odd or for keywords depending on locale
-            // check for dashes
-            if (isDoubleDate(dateString)) {
-                return getMiddleChar(dateString, '-')
+        isDoubleDate: function(dateString) { //tested
+            // determines wether a date is a double date by checking if the number of dashes is odd and return middle dash position
+            // count number of dashes with split
+            var dashes = (dateString.split("-").length - 1);
+            if ((dashes % 2) == 1) {                
+                return this.getMiddleChar(dateString, "-");
             } else {
-                // switch (locale) {
+                 // switch (locale) {
                 //     case('es_ES'): 
                 //     case('ca_ES'): 
                 //         return dateString.IndexOf(' al ');
@@ -115,23 +122,7 @@ exports.process = function(req, res) {
                 //     default:
                 //     return -1;
                 // }
-                return dateString.IndexOf(' al ');
-            }
-        },
-        getMiddleChar: function(Str, chr) {
-            // for a given character in a string, find all occurences and return the index of the middle occurence if odd, and first occurenc of second half if even
-            var indices = [];
-            var pos;
-            // find occurrences indices
-            for(var i=0; i<str.length;i++) {
-                if (str[i] === chr) indices.push(i);
-            }
-            // find middle
-            if (indices.length > 1) {
-                pos = Math.floor(indices.length/2);
-                return indices[pos];
-            } else {
-                return -1;
+                return dateString.indexOf(' al ');
             }
         },
         cleanDoubelDate: function(str) {
@@ -433,7 +424,7 @@ var test5 = [
 }
 ];
 
-var arr = ['apple', 'oranges', 'banana', 'kiwi', 'cherry']
+var arr = ['Del 1 al 15 de mayo', '1 - 15 de mayo', 'Del 4 abril al 3 de mayo', '15-1-2015', '15-1-2015 - 16-2-2015', '11/12-13/01/2016']
 
 	var file = 'json/04-05-2015/artbcn_events.json'
 	//console.log(util.inspect(jf.readFileSync(file)))
@@ -442,7 +433,7 @@ var arr = ['apple', 'oranges', 'banana', 'kiwi', 'cherry']
 	//var test = myObj[0].event_title3;
 	// console.log(helpers.cherrySplice(arr, [0,2,3]));
 	// console.log(arr);
-	console.log(helpers.deduplicateByKey(test5, "event_link-href"));
+    console.log(helpers.cleanDoubelDate(arr[0]));
 };
 
 /**
