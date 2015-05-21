@@ -103,34 +103,31 @@ exports.process = function(req, res) {
                 return -1;
             }
         },
-        isDoubleDate: function(dateString) { //tested
+        isDoubleDate: function(dateString, separator) { //tested
             // determines wether a date is a double date by checking if the number of dashes is odd and return middle dash position
+            // set letter separator to default " al" if not set
+            var separator = separator || " al";
             // count number of dashes with split
             var dashes = (dateString.split("-").length - 1);
             if ((dashes % 2) == 1) {                
                 return this.getMiddleChar(dateString, "-");
             } else {
-                 // switch (locale) {
-                //     case('es_ES'): 
-                //     case('ca_ES'): 
-                //         return dateString.IndexOf(' al ');
-                //         break;
-                //     case('en_US'): 
-                //     case('en_GB'): 
-                //         return dateString.IndexOf(' to ');
-                //         break;
-                //     default:
-                //     return -1;
-                // }
-                return dateString.indexOf(' al ');
+                return dateString.indexOf(separator);
             }
         },
         cleanDoubelDate: function(str) {
             // splits a string in two at the middle occurence of a dash
             var dates = [];
             var pos;
-            pos = helpers.getMiddleChar(str, '-');
-            dates = str.split(pos);
+            console.log(str);
+            pos = helpers.isDoubleDate(str);
+            if (pos < 0) {
+				dates[0] = str;
+            } else {
+				dates[0] = str.slice(0, pos);
+				dates[1] = str.slice(pos);
+            }
+            return dates;
         },
         cleanDoubelDateLetters: function(str) {
             // splits a string in two at the index found by isDoubleDateLetters
