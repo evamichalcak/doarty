@@ -129,11 +129,41 @@ exports.process = function(req, res) {
             }
             return dates;
         },
-        cleanDoubelDateLetters: function(str) {
-            // splits a string in two at the index found by isDoubleDateLetters
+        dateSplit: function(str) {
 
+        }
+        extractDate: function(str) {
+            var arr = [];
+            var day, 
+                month, 
+                year;
+            var separator = "/";
+            if (!str.match(/[a-z]/i)) {
+                if (str.indexOf('/') > ) {
+                    separator = '/';
+                } else if (str.indexOf('-') > ) {
+                    separator = '-';
+                } else if (str.indexOf('-') > ) {
+                    separator = '-';
+                }
+                arr = str.split(separator);
+                day = arr[0];
+                month = arr[1] || "";
+                year = arr[2] || "";
+            } else {
+                // look for first number
+                
+            }
         },
-		extractDate: function(start_date, end_date) {
+		processDate: function(start_date, end_date) {
+            // if start date and end date are the same, check for double date and return either splitted date or start date and empty end date
+            var arr = [];
+            if (start_date === end_date) {
+                arr = cleanDoubelDate(start_date);
+                start_date = arr[0];
+                // if there is no second date, asign empty string
+                end_date = arr[1] || "";
+            }
 			/*
 
 16.04.15 – 19.05.15			16.04.15 – 19.05.15
@@ -172,10 +202,6 @@ single dates, with letters:
 
 
 			*/
-		},
-		switchToUSDate: function(date) {
-			//swithces to USA date format
-			date.toLocaleDateString('en-US');
 		},
 		formatLink: function(link, base) {
 			// adds a base (url) to a (relative) link
@@ -421,7 +447,7 @@ var test5 = [
 }
 ];
 
-var arr = ['Del 1 al 15 de mayo', '1 - 15 de mayo', 'Del 4 abril al 3 de mayo', '15-1-2015', '15-1-2015 - 16-2-2015', '11/12-13/01/2016']
+var arr = ['Del 1 al 15 de mayo', '1 - 15 de mayo', 'Del 4 abril al 3 de mayo', '15-1-2015', '15-1-2015 - 16-2-2015', '11/12-13/01/2016', '28/05/2015']
 
 	var file = 'json/04-05-2015/artbcn_events.json'
 	//console.log(util.inspect(jf.readFileSync(file)))
@@ -430,7 +456,7 @@ var arr = ['Del 1 al 15 de mayo', '1 - 15 de mayo', 'Del 4 abril al 3 de mayo', 
 	//var test = myObj[0].event_title3;
 	// console.log(helpers.cherrySplice(arr, [0,2,3]));
 	// console.log(arr);
-    console.log(helpers.cleanDoubelDate(arr[0]));
+    console.log(helpers.extractDate(arr[0]));
 };
 
 /**
