@@ -115,7 +115,7 @@ exports.process = function(req, res) {
                 return dateString.indexOf(separator);
             }
         },
-        cleanDoubelDate: function(str) {
+        cleanDoubleDate: function(str) { // tested
             // splits a string in two at the middle occurence of a dash
             var dates = [];
             var pos;
@@ -129,41 +129,227 @@ exports.process = function(req, res) {
             }
             return dates;
         },
-        dateSplit: function(str) {
-
-        }
-        extractDate: function(str) {
+        convertNumberDate: function(str) { //tested
+        	// splits string by common date separators ("/", "-", ".") and returns an array with day-month-year
             var arr = [];
-            var day, 
-                month, 
-                year;
-            var separator = "/";
-            if (!str.match(/[a-z]/i)) {
-                if (str.indexOf('/') > ) {
-                    separator = '/';
-                } else if (str.indexOf('-') > ) {
-                    separator = '-';
-                } else if (str.indexOf('-') > ) {
-                    separator = '-';
-                }
-                arr = str.split(separator);
-                day = arr[0];
-                month = arr[1] || "";
-                year = arr[2] || "";
-            } else {
-                // look for first number
-                
-            }
+            var separator = '/';
+            if (str.indexOf('/') < 0 ) {            
+	            if (str.indexOf('-') >= 0 ) {
+	                separator = '-';
+	            } else if (str.indexOf('.') >= 0 ) {
+	                separator = '.';
+	            }
+	        }
+            arr = str.split(separator);
+            arr[0] = parseInt(arr[0]);
+            arr[1] = parseInt(arr[1]) || "";
+            arr[2] =parseInt(arr[2]) || "";
+            return { "day": arr[0], "month": arr[1], "year": arr[2] };
+        },
+        convertLetterDate: function(str) { //tested
+        	// finds 3-letter code of month (es-ES, ca-ES, en-US) in a string and returns corresponding month number
+        	function makeDateObject(month, code, string) {
+        		var helperArray = [];
+        		var resultArray = [];
+        		var h;
+        		string = string.toLowerCase();
+        		if (string.indexOf(code) < 0) {
+        			//string does not contain a month and must be the first part of a double date of type "1 - 15 Mayo": the string is the day
+        			resultArray[0] = parseInt(string.match(/[0-9]+/));
+        			resultArray[1] = "";
+        			resultArray[2] = "";
+        		}
+        		if (string.indexOf(code) == 0) {
+        			// month is first, checking for anglosaxon date formats with day after month
+        			if (string.match(/[0-9]+st/)) {
+        				helperArray = string.split('st');
+        			} else if (string.match(/[0-9]+nd/)) {
+        				helperArray = string.split('nd');
+        			} else if (string.match(/[0-9]+rd/)) {
+        				helperArray = string.split('rd');
+        			} else if (string.match(/[0-9]+th/)) {
+        				helperArray = string.split('th');
+        			}
+        			if (helperArray.length > 0) {
+        				// there was a split performed on an anglosaxon date format
+        				if (helperArray.length > 2) {
+        					// if an erroneous split occured like with auguST, remove it
+        					helperArray.pop();
+        				}
+        			} else  {
+        				console.log("No day found");
+        			}        			 			
+        		} else {
+        			// normal day-month-year format, splitting on month
+        			helperArray = string.split(code);
+        		}
+        		console.log('helperArray: ' + helperArray);
+        		resultArray[0] = parseInt(helperArray[0].match(/[0-9]+/));
+    			resultArray[1] = month;
+    			h = parseInt(helperArray[1].match(/[0-9]+/));
+    			console.log(h);
+    			if (isNaN(h)) {
+    				resultArray[2] = "";   
+    			} else {
+    				resultArray[2] = h;   
+    			}
+            	return { "day": resultArray[0], "month": resultArray[1], "year": resultArray[2] };
+        	}
+
+        	switch (true) {
+				case /ene/i.test(str):
+					return makeDateObject(1, "ene", str) ;
+					break;
+				case /gen/i.test(str):
+					return makeDateObject(1, "gen", str) ;
+					break;
+				case /jan/i.test(str):
+					return makeDateObject(1, "jan", str) ;
+					break;
+				case /feb/i.test(str):
+					return makeDateObject(2, "feb", str) ;
+					break;
+				case /mar/i.test(str):
+					return makeDateObject(3, "mar", str) ;
+					break;
+				case /abr/i.test(str):
+					return makeDateObject(4, "abr", str) ;
+					break;
+				case /apr/i.test(str):
+					return makeDateObject(4, "apr", str) ;
+					break;
+				case /may/i.test(str):
+					return makeDateObject(5, "may", str) ;
+					break;
+				case /mai/i.test(str):
+					return makeDateObject(5, "mai", str) ;
+					break;
+				case /jun/i.test(str):
+					return makeDateObject(6, "jun", str) ;
+					break;
+				case /jul/i.test(str):
+					return makeDateObject(7, "jul", str) ;
+					break;
+				case /ago/i.test(str):
+					return makeDateObject(8, "ago", str) ;
+					break;
+				case /aug/i.test(str):
+					return makeDateObject(8, "aug", str) ;
+					break;
+				case /sep/i.test(str):
+					return makeDateObject(9, "sep", str) ;
+					break;
+				case /set/i.test(str):
+					return makeDateObject(9, "set", str) ;
+					break;
+				case /oct/i.test(str):
+					return makeDateObject(10, "oct", str) ;
+					break;
+				case /nov/i.test(str):
+					return makeDateObject(11, "nov", str) ;
+					break;
+				case /dic/i.test(str):
+					return makeDateObject(12, "dic", str) ;
+					break;
+				case /des/i.test(str):
+					return makeDateObject(12, "des", str) ;
+					break;
+				case /dec/i.test(str):
+					return makeDateObject(12, "dec", str) ;
+					break;
+				default:
+					//string does not contain a month and must be the first part of a double date of type "1 - 15 Mayo": the string is the day
+					return { "day": parseInt(str.match(/[0-9]+/)), "month": "", "year": "" } ;
+					break;
+		    }
+        },
+        formatDate: function(dateObject) { //tested
+        	// turns a dateObject with day, month and year properties into a string with the format mm/dd/yyyy
+        	var dateString = "";
+        	var y;
+        	if (dateObject.month < 10) {
+        		// padding month with 0
+        		dateString += "0";
+        	}
+        	dateString += dateObject.month + "/";
+        	if (dateObject.day < 10) {
+        		// padding day with 0
+        		dateString += "0";
+        	}
+        	dateString += dateObject.day + "/";
+        	y = dateObject.year + "";
+        	if (y.length < 4) {
+        		//completeing year number
+        		y = dateObject.year + 2000;
+        	}
+        	dateString += y;
+        	return dateString;
         },
 		processDate: function(start_date, end_date) {
-            // if start date and end date are the same, check for double date and return either splitted date or start date and empty end date
+            // check for double date, convert dates and format them, returning an array with start and end date
             var arr = [];
-            if (start_date === end_date) {
-                arr = cleanDoubelDate(start_date);
+            var start_dateObj = {};
+            var end_dateObj = {};
+            var current_year;
+            if (!(end_date) || (start_date === end_date)) {
+            	//check for double date and return splitted date
+                arr = this.cleanDoubleDate(start_date);
                 start_date = arr[0];
                 // if there is no second date, asign empty string
                 end_date = arr[1] || "";
+                console.log("cleanDoubleDate returns: " + start_date + " and " + end_date);
             }
+            // if end date exists, get end date object first
+            // complete with current year if year is missing
+            // get start date and complete from end date, or add current year if missing
+            // format dates and return in array
+
+            // convert start date string to object 
+            console.log(/[a-z]/i.test(start_date));
+            if (/[a-z]/i.test(start_date)) {
+            	console.log('convert letter date');
+            	start_dateObj = this.convertLetterDate(start_date);
+            } else {
+            	console.log('convert number date');
+            	start_dateObj = this.convertNumberDate(start_date);
+            }
+            console.log("sssstart_dateObj.day: " + start_dateObj.day + ", start_dateObj.month: " + start_dateObj.month + ", start_dateObj.year: " + start_dateObj.year);
+
+            // if there is an end date
+            if (end_date !== "") {
+            	// convert end date string to object 
+	            if (/[a-z]/i.test(end_dateObj)) {
+	            	end_dateObj = this.convertLetterDate(end_date);
+	            } else {
+	            	end_dateObj = this.convertNumberDate(end_date);
+	            }
+	            // if start date has no year, fill it with end date year
+	            if (start_dateObj.year == "") {
+	            	if (end_dateObj.year == "") {
+	            		// if end date has no year, fill it with current year
+	            		current_year = new Date().getFullYear();
+	            		end_dateObj.year = current_year;
+	            	}
+	            	start_dateObj.year = end_dateObj.year;
+	            }
+	            // if start date has no month, fill it with end date month
+	            if (start_dateObj.month == "") {
+	            	start_dateObj.month = end_dateObj.month;
+	            }
+	            // format end date
+	            end_date = this.formatDate(end_dateObj);
+            } else {
+            	// there is no end date
+            	if (start_dateObj.year == "") {
+            		// if there is no year, fill it with current year
+            		current_year = new Date().getFullYear();
+            		start_dateObj.year = current_year;
+	            }
+            }	
+            // format start date            
+            start_date = this.formatDate(start_dateObj);
+            return [start_date, end_date];
+            
 			/*
 
 16.04.15 – 19.05.15			16.04.15 – 19.05.15
@@ -447,7 +633,7 @@ var test5 = [
 }
 ];
 
-var arr = ['Del 1 al 15 de mayo', '1 - 15 de mayo', 'Del 4 abril al 3 de mayo', '15-1-2015', '15-1-2015 - 16-2-2015', '11/12-13/01/2016', '28/05/2015']
+var arr = ['Del 1 al 15 de mayo', '1 - 15 de febrero', '24 de desembre', '8th of August', 'Del 4 abril al 3 de mayo', '15-1-2015', '15-1-2015 - 16-2-2015', '11/12-13/01/2016', '28/05/2015', '14.10.2015']
 
 	var file = 'json/04-05-2015/artbcn_events.json'
 	//console.log(util.inspect(jf.readFileSync(file)))
@@ -456,9 +642,11 @@ var arr = ['Del 1 al 15 de mayo', '1 - 15 de mayo', 'Del 4 abril al 3 de mayo', 
 	//var test = myObj[0].event_title3;
 	// console.log(helpers.cherrySplice(arr, [0,2,3]));
 	// console.log(arr);
-    console.log(helpers.extractDate(arr[0]));
+    console.log(helpers.processDate(arr[6], arr[6]));
+    // arr[7] = arr[7] || "w";
+    // console.log(arr[7]);
 };
 
-/**
+/*
  * Send User
  */
