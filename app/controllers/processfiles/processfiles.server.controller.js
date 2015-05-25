@@ -108,7 +108,8 @@ exports.process = function(req, res) {
             // set letter separator to default " al" if not set
             var separator = separator || " al";
             // count number of dashes with split
-            var dashes = (dateString.split("-").length - 1);
+            var h = dateString.split("-");
+            var dashes = (h.length - 1);
             if ((dashes % 2) == 1) {                
                 return this.getMiddleChar(dateString, "-");
             } else {
@@ -119,18 +120,17 @@ exports.process = function(req, res) {
             // splits a string in two at the middle occurence of a dash
             var dates = [];
             var pos;
-            console.log(str);
             pos = helpers.isDoubleDate(str);
             if (pos < 0) {
 				dates[0] = str;
             } else {
 				dates[0] = str.slice(0, pos);
-				dates[1] = str.slice(pos);
+				dates[1] = str.slice(pos + 1);
             }
             return dates;
         },
         convertNumberDate: function(str) { //tested
-        	// splits string by common date separators ("/", "-", ".") and returns an array with day-month-year
+        	// splits string by common date separators ("/", "-", ".") and returns an object with day-month-year
             var arr = [];
             var separator = '/';
             if (str.indexOf('/') < 0 ) {            
@@ -183,11 +183,9 @@ exports.process = function(req, res) {
         			// normal day-month-year format, splitting on month
         			helperArray = string.split(code);
         		}
-        		console.log('helperArray: ' + helperArray);
         		resultArray[0] = parseInt(helperArray[0].match(/[0-9]+/));
     			resultArray[1] = month;
     			h = parseInt(helperArray[1].match(/[0-9]+/));
-    			console.log(h);
     			if (isNaN(h)) {
     				resultArray[2] = "";   
     			} else {
@@ -297,7 +295,6 @@ exports.process = function(req, res) {
                 start_date = arr[0];
                 // if there is no second date, asign empty string
                 end_date = arr[1] || "";
-                console.log("cleanDoubleDate returns: " + start_date + " and " + end_date);
             }
             // if end date exists, get end date object first
             // complete with current year if year is missing
@@ -305,20 +302,16 @@ exports.process = function(req, res) {
             // format dates and return in array
 
             // convert start date string to object 
-            console.log(/[a-z]/i.test(start_date));
             if (/[a-z]/i.test(start_date)) {
-            	console.log('convert letter date');
             	start_dateObj = this.convertLetterDate(start_date);
             } else {
-            	console.log('convert number date');
             	start_dateObj = this.convertNumberDate(start_date);
             }
-            console.log("sssstart_dateObj.day: " + start_dateObj.day + ", start_dateObj.month: " + start_dateObj.month + ", start_dateObj.year: " + start_dateObj.year);
-
+        
             // if there is an end date
             if (end_date !== "") {
             	// convert end date string to object 
-	            if (/[a-z]/i.test(end_dateObj)) {
+	            if (/[a-z]/i.test(end_date)) {
 	            	end_dateObj = this.convertLetterDate(end_date);
 	            } else {
 	            	end_dateObj = this.convertNumberDate(end_date);
@@ -633,7 +626,7 @@ var test5 = [
 }
 ];
 
-var arr = ['Del 1 al 15 de mayo', '1 - 15 de febrero', '24 de desembre', '8th of August', 'Del 4 abril al 3 de mayo', '15-1-2015', '15-1-2015 - 16-2-2015', '11/12-13/01/2016', '28/05/2015', '14.10.2015']
+var arr = ['Del 1 al 15 de mayo', '1 - 15 de febrero', '24 de desembre', '8th of August', 'Del 4 abril al 3 de mayo', '15-1-2015', '15-1-2014 - 16-2-2015', '11/12-13/01/2016', '28/05/2015', '14.10.2015']
 
 	var file = 'json/04-05-2015/artbcn_events.json'
 	//console.log(util.inspect(jf.readFileSync(file)))
@@ -642,7 +635,7 @@ var arr = ['Del 1 al 15 de mayo', '1 - 15 de febrero', '24 de desembre', '8th of
 	//var test = myObj[0].event_title3;
 	// console.log(helpers.cherrySplice(arr, [0,2,3]));
 	// console.log(arr);
-    console.log(helpers.processDate(arr[6], arr[6]));
+    console.log(helpers.processDate(arr[8], arr[9]));
     // arr[7] = arr[7] || "w";
     // console.log(arr[7]);
 };
