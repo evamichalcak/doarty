@@ -42,7 +42,7 @@ exports.process = function(req, res) {
 			}
 			return valuePair;
 		},
-		addPropertiesFromKeys: function(obj) {
+		addPropertiesFromKeys: function(obj) { //tested
 			// finds all compound keys "key-name__key-value" on an object, adds the key-name as new property with the key-value as value and removes compound key
 			var arr = [];
 			for (var key in obj) {
@@ -124,6 +124,8 @@ exports.process = function(req, res) {
             var dashes = (h.length - 1);
             if ((dashes % 2) == 1) {                
                 return this.getMiddleChar(dateString, "-");
+            } else if (dateString.indexOf("–") > 0) {
+                return dateString.indexOf("–");
             } else {
                 return dateString.indexOf(separator);
             }
@@ -133,6 +135,7 @@ exports.process = function(req, res) {
             var dates = [];
             var pos;
             pos = helpers.isDoubleDate(str);
+            console.log('isDoubelDate returns '+pos)
             if (pos < 0) {
 				dates[0] = str;
             } else {
@@ -297,13 +300,16 @@ exports.process = function(req, res) {
         },
 		processDate: function(start_date, end_date) { //tested
             // check for double date, convert dates and format them, returning an array with start and end date
+            console.log(start_date+', '+end_date);
             var arr = [];
             var start_dateObj = {};
             var end_dateObj = {};
             var current_year;
             if (!(end_date) || (start_date === end_date)) {
+            	console.log('double')
             	//check for double date and return splitted date
                 arr = this.cleanDoubleDate(start_date);
+                console.log(arr);
                 start_date = arr[0];
                 // if there is no second date, asign empty string
                 end_date = arr[1] || "";
@@ -415,7 +421,7 @@ exports.process = function(req, res) {
 			}
 			return description;
 		},
-		formatEventObject: function(obj) {
+		formatEventObject: function(obj) { //tested 
 			// loads a scraped object and formats it for CSV import
 			var eventObj = {};
 			var arr = [];
@@ -423,13 +429,13 @@ exports.process = function(req, res) {
 			// get properties from compound keys "key-name__key-value"
 			obj = this.addPropertiesFromKeys(obj);
 
-			// add base-url if necessary
-			if (obj.hasOwnProperty('event_base-url')) {
-				eventObj['event_link'] = obj.event_base-url;
-			} 
-			// add event_link
-			eventObj['event_link'] += obj.event_link-href;
-
+			// add event_link with base-url if necessary
+			if (this.checkKey(obj['event_base-url'])) {
+				eventObj['event_link'] = obj['event_base-url'] + obj['event_link-href'];
+			} else {
+				eventObj['event_link'] = obj['event_link-href'];
+			}
+			
 			// addevent_title
 			eventObj['event_title'] = this.getTitle(obj['event_title'], obj['event_title1'], obj['event_title2']);
 
@@ -444,24 +450,24 @@ exports.process = function(req, res) {
 			eventObj['event_end'] = arr[1];
 
 			// add event_category
-			eventObj['event_category'] = obj.event_category;
+			eventObj['event_category'] = obj['event_category'];
 
 			// add event_maplink
-			eventObj['event_maplink'] = obj.event_maplink;
+			eventObj['event_maplink'] = obj['event_maplink'];
 
 			// add event_organizer
-			eventObj['event_organizer'] = obj.event_organizer;
+			eventObj['event_organizer'] = obj['event_organizer'];
 
 			// add event_venue
-			eventObj['event_venue'] = obj.event_venue;
+			eventObj['event_venue'] = obj['event_venue'];
 
 			// add event_cost
-			eventObj['event_cost'] = obj.event_cost;
+			eventObj['event_cost'] = obj['event_cost'];
 
 			// return the newly created object
 			return eventObj;
 		},
-		processAll: function(JSONarray) {
+		processAll: function(JSONarray) { //tested
 			// deduplicate JSONarray, format objects and pass them to a new JSON
 			var len, obj;
 			var eventArr = [];
@@ -546,22 +552,23 @@ var test5 = [
 {
     "event_maplink__1": "null",
     "event_img-src": "http://www.artbarcelona.es/wp-content/uploads/2015/04/BIPA2015_Daesung_Lee_Futuristic_Archeology1.jpg",
-    "event_location": "Galería Valid Foto Bcn",
+    "event_venue": "Galería Valid Foto Bcn",
     "event_link": "",
     "event_link-href": "http://www.artbarcelona.es/es/exposiciones/barcelona-international-photography-awards-bipa-2015-es/",
     "event_title1": "Colectiva",
-    "event_start": "",
+    "event_start": "25.04.15 – 30.05.15",
     "event_end": "25.04.15 – 30.05.15",
     "event_organizer": "Galería Valid Foto Bcn",
     "event_title2": "Barcelona International Photography Awards, BIPA 2015",
     "event_text": "Exposición de los ocho fotógrafos ganadores del concurso Barcelona International Photography Awards, BIPA 2015 seleccionados por un jurado internacional entre más de 1000 portafolios presentados.",
     "event_cost__0": "null",
-    "event_category__Exposición__Galería": "null"
+    "event_category__Exposición__Galería": "null",
+    "event_id": "0"
 }, 
 {
     "event_maplink__1": "null",
     "event_img-src": "http://www.artbarcelona.es/wp-content/uploads/2015/03/PALMADOTZE.-Imatge.-targeto.Paisatges-lestigma-dall---social.IMG_2221.jpg",
-    "event_location": "PALMADOTZE",
+    "event_venue": "PALMADOTZE",
     "event_link": "",
     "event_link-href": "http://www.artbarcelona.es/es/exposiciones/paisajes-el-estigma-de-lo-social/",
     "event_title1": "Guillem Bayo, Alfonso Borragán, Alicia Kopf, Andrea Mármol, Mateo Maté, Mariona Moncunill, Xavi Muñoz, Patricio Palomeque, Joaquín Segura",
@@ -571,42 +578,45 @@ var test5 = [
     "event_title2": "Paisajes. El estigma de lo social",
     "event_text": "El paisaje siempre ha estado allí y aquí. Acompañándonos en todo lo que sucede. Adquiriendo también morfologías concretas y creando, a la vez, un nuevo paisaje que susurra a aquél originario que lo ha visto nacer. El rumor se hace presente también por ausencia y distancia.\nSon estos paisajes los que encontramos reunidos en esta muestra. Pasajes naturales que se pierden en la memoria, paisajes culturales, urbanos, domésticos, fantasmagóricos e incluso, sonoros. A través de diferentes formatos (audiovisuales, electrónicos, plásticos, literarios, etc.) nos vienen al encuentro paisajes de un tiempo contemporáneo y que vienen a secuestrar un fragmento de tiempo y, de alguna manera, rememoran el vacío de lo que se desvanece.",
     "event_cost__0": "null",
-    "event_category__Exposición__Galería": "null"
+    "event_category__Exposición__Galería": "null",
+    "event_id": "1"
 }, 
 {
     "event_maplink__1": "null",
     "event_img-src": "http://www.artbarcelona.es/wp-content/uploads/2015/03/PALMADOTZE.-Imatge.-targeto.Paisatges-lestigma-dall---social.IMG_2221.jpg",
-    "event_location": "",
+    "event_venue": "",
     "event_link": "",
     "event_link-href": "http://www.artbarcelona.es/es/exposiciones/paisajes-el-estigma-de-lo-social/",
     "event_title1": "Guillem Bayo, Alfonso Borragán, Alicia Kopf, Andrea Mármol, Mateo Maté, Mariona Moncunill, Xavi Muñoz, Patricio Palomeque, Joaquín Segura",
-    "event_start": "",
+    "event_start": "11.04.15 – 31.07.15",
     "event_end": "11.04.15 – 31.07.15",
     "event_organizer": "",
     "event_title2": "Paisajes. El estigma de lo social",
     "event_text": "El paisaje siempre ha estado allí y aquí. Acompañándonos en todo lo que sucede. Adquiriendo también morfologías concretas y creando, a la vez, un nuevo paisaje que susurra a aquél originario que lo ha visto nacer. El rumor se hace presente también por ausencia y distancia.\nSon estos paisajes los que encontramos reunidos en esta muestra. Pasajes naturales que se pierden en la memoria, paisajes culturales, urbanos, domésticos, fantasmagóricos e incluso, sonoros. A través de diferentes formatos (audiovisuales, electrónicos, plásticos, literarios, etc.) nos vienen al encuentro paisajes de un tiempo contemporáneo y que vienen a secuestrar un fragmento de tiempo y, de alguna manera, rememoran el vacío de lo que se desvanece.",
     "event_cost__0": "null",
-    "event_category__Exposición__Galería": "null"
+    "event_category__Exposición__Galería": "null",
+    "event_id": "1"
 }, 
 {
     "event_maplink__1": "null",
     "event_img-src": "http://www.artbarcelona.es/wp-content/uploads/2015/03/Angels_Tristan_Perich_Interval_Study_1_c.jpg",
-    "event_location": "àngels barcelona",
+    "event_venue": "àngels barcelona",
     "event_link": "",
     "event_link-href": "http://www.artbarcelona.es/es/exposiciones/sounding-bits-un-projecto-comisariado-por-lluis-nacenta-con-la-colaboracin-de-lauditori-de-barcelona/",
     "event_title1": "Tristan Perich",
-    "event_start": "",
+    "event_start": "11.03.15 – 11.05.15",
     "event_end": "11.03.15 – 11.05.15",
     "event_organizer": "àngels barcelona",
     "event_title2": "Sound in Bits",
     "event_text": "Un proyecto comisariado por Lluis Nacenta con la colaboración de el Auditori de Barcelona\nTristan Perich compagina en su obra las artes visuales y la música, y en ambos campos pugna por hacer visible y audible la interrelación del código lógico con la impresión sensorial. A medio camino entre la simplicidad del orden matemático y la complejidad del mundo orgánico, sus dibujos e instalaciones sonoras hacen visible y audible el proceso de su propia realización. La pieza Octave se incluye en la exposición en colaboración con el ciclo Sampler Series de L'Auditori. Los Machine Drawings se exponen por primera vez en España.\nPrimera exposición indiviual en España de Tristan Perich, que en 2013 fue seleccionado para \"Soundings\": primera gran exposición del MoMA sobre arte sonoro y en la que se mostraban los trabajos de los artistas contemporáneos más innovadores trabajando con sonido. Sus trabajos anteriores también se han presentado en Nueva York en el Museo Whitney, el P.S.1/MoMA, The Kitchen o bitforms gallery, además de en el Mass MoCA, North Adams, la LABoral, Gijón, y Sonar, Barcelona, entre otros muchos espacios reconocidos por su trabajo con arte multimedia.\nLluís Nacenta es profesor, ensayista y comisario en los campos de la música y el diseño sonoro. Formado como matemático y pianista, combina los dos mundos en una mirada filosófica sobre las artes del sonido. Actualmente es profesor del Máster Universitario de Investigación en Arte y Diseño de Eina, Centre Universitari de Disseny i Art de Barcelona. Ha comisariado exposiciones y conciertos para el Festival Sónar, el Arts Santa Mònica, el Centre de Cultura Contemporània de Barcelona (CCCB) y la Fundació Antoni Tàpies, entre otros.",
     "event_cost__0": "null",
-    "event_category__Exposición__Galería": "null"
+    "event_category__Exposición__Galería": "null",
+    "event_id": "2"
 }, 
 {
     "event_maplink__1": "null",
     "event_img-src": "http://www.artbarcelona.es/wp-content/uploads/2015/04/XR_projecteSD.jpg",
-    "event_location": "ProjecteSD",
+    "event_venue": "ProjecteSD",
     "event_link": "",
     "event_link-href": "http://www.artbarcelona.es/es/exposiciones/it-would-never-be-quite-the-same-again/",
     "event_title1": "Xavier Ribas",
@@ -616,12 +626,13 @@ var test5 = [
     "event_title2": "It Would Never Be Quite The Same Again",
     "event_text": "It Would Never Be Quite The Same Again es la tercera exposición individual de Xavier Ribas en ProjecteSD, en la que presenta una serie de obras relacionadas con su proyecto Nitrato, presentado en el Macba en junio de 2014 y que actualmente se puede visitar en The Bluecoat, Liverpool.\nDos negativos de un paisaje de América del Sur tomados en 1907 por Mabel Loomis Todd, y posteriormente fotografiados por Ribas en la biblioteca de la Universidad de Yale, sirven como punto de conexión entre las obras reunidas en Nitrato y la presente exposición.\nEl título de la exposición, It Would Never Be Quite The Same Again [Nunca volvería a ser exactamente lo mismo] –que coincide con el de una de las obras presentadas-, está tomado de las palabras pronunciadas por un juez en un tribunal para apoyar su veredicto al respecto del caso de una estatua de la ex primera ministra Margaret Thatcher que resultó decapitada por un activista. Estas palabras sirven a Xavier Ribas para tejer una constelación de historias de resistencia o actos de disidencia. Desarrolladas como fotografías de gran formato, junto a textos elaborados por el artista y copias de la documentación original, el trabajo de Ribas revisa una serie de hechos y documentos que son interpretados como ecos distantes de las detonaciones en los paisajes desérticos de Atacama durante el S. XIX, y que resuenan todavía en la historia reciente de Chile y Gran Bretaña.\nEl mensaje de la exposición podría ser que esta interrelación de casos dispersos –pequeños ejemplos de activismo, acción directa, gestos radicales, campañas solidarias- que cambian aparentemente nada o muy poco en nuestra realidad cotidiana, pueden sin embargo, por acumulación, servir de punto de inflexión para permitir el cambio en un futuro.",
     "event_cost__0": "null",
-    "event_category__Exposición__Galería": "null"
+    "event_category__Exposición__Galería": "null",
+    "event_id": "3"
 }, 
 {
     "event_maplink__1": "null",
     "event_img-src": "http://www.artbarcelona.es/wp-content/uploads/2015/04/Sergi-Mesa-_Sense-t--tol_Oli-sobre-lli_150-x-160-cm2.jpg",
-    "event_location": "Galería Trama",
+    "event_venue": "Galería Trama",
     "event_link": "",
     "event_link-href": "http://www.artbarcelona.es/es/exposiciones/modular-es/",
     "event_title1": "",
@@ -631,12 +642,13 @@ var test5 = [
     "event_title2": "",
     "event_text": "Natalia Baquero (Zaragoza, 1982) y Sergi Mesa (Manresa, 1987) presentan su primera exposición colectiva en Galeria Trama después de ser seleccionados en ediciones recientes del concurso de pintura y fotografía ART<35, que organizan anualmente Galeria Trama y Sala Parés. El título de la exposición Modular hace referencia al punto donde confluyen los universos pictóricos de los dos artistas:\nPor un lado, las obras de Natalia Baquero parten de la repetición de elementos pictóricos básicos (puntos, líneas o planos) y de la combinatoria constructiva que estos generan. Estos elementos actúan como “módulos” y su repetición progresiva se utiliza como elemento de búsqueda. Son obras que tratan sobre la investigación de las excepciones y de las nuevas posibilidades que surgen de estos procesos combinatorios.\nPor otro lado, Sergi Mesa modula otros elementos que dominan su obra: la forma, el color y los elementos icónicos que muchas veces aparecen. A través de sus pinturas, este artista nos transporta a nuevas realidades. Empleando formes básicas y primitivas pretende abrir nuevos horizontes, donde los límites los establece solo nuestra mente y aquello que seamos capaces de imaginar.",
     "event_cost__0": "null",
-    "event_category__Exposición__Galería": "null"
+    "event_category__Exposición__Galería": "null",
+    "event_id": "4"
 }, 
 {
     "event_maplink__1": "",
     "event_img-src": "http://www.artbarcelona.es/wp-content/uploads/2015/04/Sergi-Mesa-_Sense-t--tol_Oli-sobre-lli_150-x-160-cm2.jpg",
-    "event_location": "Galería Trama",
+    "event_venue": "Galería Trama",
     "event_link": "",
     "event_link-href": "http://www.artbarcelona.es/es/exposiciones/modular-es/",
     "event_title1": "Natalia Baquero & Sergi Mesa",
@@ -646,7 +658,8 @@ var test5 = [
     "event_title2": "Modular",
     "event_text": "",
     "event_cost__0": "",
-    "event_category__Exposición__Galería": "null"
+    "event_category__Exposición__Galería": "null",
+    "event_id": "4"
 }
 ];
 
@@ -661,7 +674,7 @@ var arr = ['Del 1 al 15 de mayo', '1 - 15 de febrero', '24 de desembre', '8th of
 	//var test = myObj[0].event_title3;
 	// console.log(helpers.cherrySplice(arr, [0,2,3]));
 	// console.log(arr);
-    console.log(helpers.addPropertiesFromKeys(test6));
+    console.log(helpers.processAll(test5));
     // arr[7] = arr[7] || "w";
     // console.log(arr[7]);
 };
