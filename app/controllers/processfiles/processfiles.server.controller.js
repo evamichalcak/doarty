@@ -24,7 +24,7 @@ exports.process = function(req, res) {
 
 
 	var helpers = {
-		checkKey: function(key) { // tested
+		checkKey: function(key) { //tested
 			// returns true if a key is defined and not empty
 			if (((typeof key) !== "undefined") && (key !== '')) {
 					return true;
@@ -32,7 +32,7 @@ exports.process = function(req, res) {
 				return false;
 			}
 		},
-		getValuesFromKey: function(key) { // tested
+		getValuesFromKey: function(key) { //tested
 			// returns comma-separated string of values attached by "__" to a keyname
 			var valuePair = [];
 			var valArray = key.split('__');
@@ -41,6 +41,18 @@ exports.process = function(req, res) {
 				valuePair[1] = valArray.join(', ');
 			}
 			return valuePair;
+		},
+		addPropertiesFromKeys: function(obj) {
+			// finds all compound keys "key-name__key-value" on an object, adds the key-name as new property with the key-value as value and removes compound key
+			var arr = [];
+			for (var key in obj) {
+				if (key.indexOf('__') > 0) {
+					arr = this.getValuesFromKey(key);
+					obj[arr[0]] = arr[1];
+					delete obj[key];
+				}	
+			}
+			return obj;
 		},
 		mergeObjects: function(obj1, obj2) { //tested
 			// for two objects with identical keys returns new object with the value of object one, and if that is empty string, of object two
@@ -283,7 +295,7 @@ exports.process = function(req, res) {
         	dateString += y;
         	return dateString;
         },
-		processDate: function(start_date, end_date) {
+		processDate: function(start_date, end_date) { //tested
             // check for double date, convert dates and format them, returning an array with start and end date
             var arr = [];
             var start_dateObj = {};
@@ -296,11 +308,6 @@ exports.process = function(req, res) {
                 // if there is no second date, asign empty string
                 end_date = arr[1] || "";
             }
-            // if end date exists, get end date object first
-            // complete with current year if year is missing
-            // get start date and complete from end date, or add current year if missing
-            // format dates and return in array
-
             // convert start date string to object 
             if (/[a-z]/i.test(start_date)) {
             	start_dateObj = this.convertLetterDate(start_date);
@@ -342,49 +349,6 @@ exports.process = function(req, res) {
             // format start date            
             start_date = this.formatDate(start_dateObj);
             return [start_date, end_date];
-            
-			/*
-
-16.04.15 – 19.05.15			16.04.15 – 19.05.15
-Del 6 de marzo al 7 de junio de 2015	Del 6 de marzo al 7 de junio de 2015
-15 septiembre 2014- 22 febrero 2015	15 septiembre 2014- 22 febrero 2015
-4.6.15					25.10.15
-05/06					06/09/2015
-27 febrero – 31 mayo 2015		27 febrero – 31 mayo 2015
-Miércoles, 18 Febrero, 2015		Domingo, 22 Marzo, 2015
-01 ene.					31 dic. 2014
-24 sep. 2014				null
-null					null
-03.03 - 19.04.2015			03.03 - 19.04.2015
-
-
-scraper specials:
--both dates the same: one day event
--both dates the same: both in same field
--null in one, date in other: one day event
--null in both: delete event (has not been scheduled yet)
-
-
-double date:
--dash appears only once or at least 3 times
--letters are present and one dash appears (1-3 de marzo)
--letters are present and 2 months appear (del 1 de marzo al 3 de abril) -> split by " al ", " hasta ", " fins ", " until ", " to "
-
-single dates, no letters:
--split by either ".", "/" or "-"
--if resulting array.length is 1 -> day, need to exract month and year from other date
--if resulting array.length is 2 -> day and month, need to exract year from other date
--if resulting array.length is 3 -> day, month and year, check length of year and fix to 4
-
-single dates, with letters:
--find month, go back to nearest number -> day, go forward to nearest number -> year
-
-
-			*/
-		},
-		formatLink: function(link, base) {
-			// adds a base (url) to a (relative) link
-			return base + link;
 		},
 		deduplicateByKey: function(JSONarray, key) { //tested
 			var indices = [];
@@ -450,8 +414,67 @@ single dates, with letters:
 			}
 			return description;
 		},
-		addMissingColumns: function(cost, category, maplink, organizer, venue) {
+		formatEventObject: function(obj) {
+			// loads a scraped object and formats it for CSV import
+			var eventObj = {};
+			var arr = [];
 
+			// get properties from compound keys "key-name__key-value"
+			obj = this.addPropertiesFromKeys(obj);
+
+			// add base-url if necessary
+			if (obj.hasOwnProperty('event_base-url')) {
+				eventObj['event_link'] = obj.event_base-url;
+			} 
+			// add event_link
+			eventObj['event_link'] += obj.event_link-href;
+
+			// addevent_title
+			eventObj['event_title'] = this.getTitle(obj['event_title'], obj['event_title1'], obj['event_title2']);
+
+			// add event_description
+			eventObj['event_description'] = this.makeDescription(obj['event_image-src'], eventObj['event_title'], obj['event_text'], eventObj['event_link']);
+
+			// get both formatted dates
+			arr = this.processDate(obj['event_start'], obj['event_end']);
+			// add event_start
+			eventObj['event_start'] = arr[0];
+			// add event_end
+			eventObj['event_end'] = arr[1];
+
+			// add event_category
+			eventObj['event_category'] = obj.event_category;
+
+			// add event_maplink
+			eventObj['event_maplink'] = obj.event_maplink;
+
+			// add event_organizer
+			eventObj['event_organizer'] = obj.event_organizer;
+
+			// add event_venue
+			eventObj['event_venue'] = obj.event_venue;
+
+			// add event_cost
+			eventObj['event_cost'] = obj.event_cost;
+
+			// return the newly created object
+			return eventObj;
+		},
+		processAll: function(JSONarray) {
+			// deduplicate JSONarray, format objects and pass them to a new JSON
+			var len, obj;
+			var eventArr = [];
+			// deduplicate
+			JSONarray = this.deduplicateByKey(JSONarray, 'event_id');
+
+			len = JSONarray.length;
+			for (var i = 0; i < len; i++) {
+				// format object
+				obj = this.formatEventObject(JSONarray[i]);
+				// add object to new array
+				eventArr.push(obj);
+			}
+			return eventArr;
 		}
 	 }
 
@@ -626,6 +649,8 @@ var test5 = [
 }
 ];
 
+var test6 = {"event_name": "My Event", "event_maplink__1": null, "event_category__Exposición__Galería": null};
+
 var arr = ['Del 1 al 15 de mayo', '1 - 15 de febrero', '24 de desembre', '8th of August', 'Del 4 abril al 3 de mayo', '15-1-2015', '15-1-2014 - 16-2-2015', '11/12-13/01/2016', '28/05/2015', '14.10.2015']
 
 	var file = 'json/04-05-2015/artbcn_events.json'
@@ -635,7 +660,7 @@ var arr = ['Del 1 al 15 de mayo', '1 - 15 de febrero', '24 de desembre', '8th of
 	//var test = myObj[0].event_title3;
 	// console.log(helpers.cherrySplice(arr, [0,2,3]));
 	// console.log(arr);
-    console.log(helpers.processDate(arr[8], arr[9]));
+    console.log(helpers.addPropertiesFromKeys(test6));
     // arr[7] = arr[7] || "w";
     // console.log(arr[7]);
 };
