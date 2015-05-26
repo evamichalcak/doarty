@@ -308,6 +308,7 @@ exports.process = function(req, res) {
                 // if there is no second date, asign empty string
                 end_date = arr[1] || "";
             }
+
             // convert start date string to object 
             if (/[a-z]/i.test(start_date)) {
             	start_dateObj = this.convertLetterDate(start_date);
