@@ -283,7 +283,7 @@ exports.process = function(req, res) {
         	dateString += y;
         	return dateString;
         },
-		processDate: function(start_date, end_date) {
+		processDate: function(start_date, end_date) { //tested
             // check for double date, convert dates and format them, returning an array with start and end date
             var arr = [];
             var start_dateObj = {};
@@ -296,10 +296,6 @@ exports.process = function(req, res) {
                 // if there is no second date, asign empty string
                 end_date = arr[1] || "";
             }
-            // if end date exists, get end date object first
-            // complete with current year if year is missing
-            // get start date and complete from end date, or add current year if missing
-            // format dates and return in array
 
             // convert start date string to object 
             if (/[a-z]/i.test(start_date)) {
@@ -342,45 +338,6 @@ exports.process = function(req, res) {
             // format start date            
             start_date = this.formatDate(start_dateObj);
             return [start_date, end_date];
-            
-			/*
-
-16.04.15 – 19.05.15			16.04.15 – 19.05.15
-Del 6 de marzo al 7 de junio de 2015	Del 6 de marzo al 7 de junio de 2015
-15 septiembre 2014- 22 febrero 2015	15 septiembre 2014- 22 febrero 2015
-4.6.15					25.10.15
-05/06					06/09/2015
-27 febrero – 31 mayo 2015		27 febrero – 31 mayo 2015
-Miércoles, 18 Febrero, 2015		Domingo, 22 Marzo, 2015
-01 ene.					31 dic. 2014
-24 sep. 2014				null
-null					null
-03.03 - 19.04.2015			03.03 - 19.04.2015
-
-
-scraper specials:
--both dates the same: one day event
--both dates the same: both in same field
--null in one, date in other: one day event
--null in both: delete event (has not been scheduled yet)
-
-
-double date:
--dash appears only once or at least 3 times
--letters are present and one dash appears (1-3 de marzo)
--letters are present and 2 months appear (del 1 de marzo al 3 de abril) -> split by " al ", " hasta ", " fins ", " until ", " to "
-
-single dates, no letters:
--split by either ".", "/" or "-"
--if resulting array.length is 1 -> day, need to exract month and year from other date
--if resulting array.length is 2 -> day and month, need to exract year from other date
--if resulting array.length is 3 -> day, month and year, check length of year and fix to 4
-
-single dates, with letters:
--find month, go back to nearest number -> day, go forward to nearest number -> year
-
-
-			*/
 		},
 		formatLink: function(link, base) {
 			// adds a base (url) to a (relative) link
