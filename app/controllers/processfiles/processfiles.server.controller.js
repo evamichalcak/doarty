@@ -18,7 +18,7 @@
  * Update user details
  */
 //exports.process = function(req, res) {
-exports.process = function(dirName) {
+exports.process = function(path) {
 console.log('processin\'...');
 
 var helpers = {
@@ -360,7 +360,6 @@ var helpers = {
 			//find all duplicates of current object
 			indices = this.findAllIndices(JSONarray, key, JSONarray[i][key]);
 			//create subarray by cherrySplicing array
-			console.log(indices);
 			tempArray = this.cherrySplice(JSONarray, indices);
 			//merge all objects in tempArray
 			temp2 = tempArray.reduce(function(previousValue, currentValue, index, array) {
@@ -496,37 +495,41 @@ var options = {
 	}
 };
 
-var dir = '/'+dirName+'/';
-var files = fs.readdirSync('json'+ dir);
+var files = fs.readdirSync(path+'json/');
 
 function processFiles(fileNames) {
 	var myfile, 
 		jsn,
-		path;
+		filepath;
 	for (var i=0; i < files.length; i++) {
-		path = 'json'+ dir + files[i];
-		myfile = jf.readFileSync(path);
+		filepath = path + 'json/' + files[i];
+		myfile = jf.readFileSync(filepath);
 		jsn=helpers.processAll(myfile);
-		convertData(jsn, files[i]);
+		//convertData(jsn, files[i]);
+		writeData(jsn, files[i]);
 	}
 
 }
 
-
-function convertData(JSON, name) {
-	// assign argument to closure variable
-	var fname = name;
-	var json2csvCallback = function (err, csv) {
-	    if (err) throw err;
-	    writeData(csv, fname);
-	};
-	csvconverter.json2csv(JSON, json2csvCallback, options);
+function writeData(JSON, name) {
+	jf.writeFileSync(path+'processed/'+ name, JSON);
 };
 
 
-function writeData(CSV, name) {
-	fs.writeFileSync('csv/'+dir+ name+'.csv', CSV);
-};
+// function convertData(JSON, name) {
+// 	// assign argument to closure variable
+// 	var fname = name;
+// 	var json2csvCallback = function (err, csv) {
+// 	    if (err) throw err;
+// 	    writeData(csv, fname);
+// 	};
+// 	csvconverter.json2csv(JSON, json2csvCallback, options);
+// };
+
+
+// function writeData(CSV, name) {
+// 	fs.writeFileSync(path+'csv/'+ name+'.csv', CSV);
+// };
 
 
 
