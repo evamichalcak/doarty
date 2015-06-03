@@ -7,7 +7,7 @@
  var express = require('express');
  var jf = require('jsonfile');
  var util = require('util');
- var csvconverter = require('json-2-csv');
+ //var csvconverter = require('json-2-csv');
  var fs = require('fs');
  
 
@@ -56,12 +56,12 @@ var helpers = {
 		// for two objects with identical keys returns new object with the value of object one, and if that is empty string, of object two
 		var newObj = {};
 		for (var key in obj1) {
-			if (obj1[key] == '') {
+			if ((obj1[key] == '') || (obj1[key] == 'null') || (obj1[key] == 'undefined')) {
 				newObj[key] = obj2[key];
-			} else {				
+			} else {
 				newObj[key] = obj1[key];
 			}
-		}
+		}             
 		return newObj;
 	},
 	findAllIndices: function(JSONarray, keyId, keyValue) { //tested
@@ -370,8 +370,8 @@ var helpers = {
 				}
 			    
 			});
-			//push deduplicated and merged object back to JSONarray
-			JSONarray.push(temp2);
+         	//prepend deduplicated and merged object back to JSONarray
+			JSONarray.unshift(temp2);
 		}
 		return JSONarray;
 	},
