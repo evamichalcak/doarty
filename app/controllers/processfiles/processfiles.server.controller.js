@@ -56,8 +56,12 @@ var helpers = {
 		// for two objects with identical keys returns new object with the value of object one, and if that is empty string, of object two
 		var newObj = {};
 		for (var key in obj1) {
-			if (obj1[key] == '') {
-				newObj[key] = obj2[key];
+			if ((obj1[key] === "undefined") || (obj1[key] === "") || (obj1[key] === "null")) {
+				if ((obj2[key] === "undefined") || (obj2[key] === "") || (obj2[key] === "null")) {
+					newObj[key] = "";
+				} else {
+					newObj[key] = obj2[key];
+				}
 			} else {				
 				newObj[key] = obj1[key];
 			}
