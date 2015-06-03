@@ -57,7 +57,11 @@ var helpers = {
 		var newObj = {};
 		for (var key in obj1) {
 			if ((obj1[key] == '') || (obj1[key] == 'null') || (obj1[key] == 'undefined')) {
-				newObj[key] = obj2[key];
+				if ((obj2[key] == 'null') || (obj2[key] == 'undefined')) {
+					newObj[key] = "";
+				} else {
+					newObj[key] = obj2[key];
+				}
 			} else {
 				newObj[key] = obj1[key];
 			}
@@ -404,7 +408,7 @@ var helpers = {
 			title = event_title;
 		}
 		if (this.checkKey(event_image)) {
-			description = "<img src='" + event_image + "' width='228' height='182' alt='" + title + "' />";
+			description = "<p><img src='" + event_image + "' width='228' height='182' alt='" + title + "' /></p>";
 		}
 		if (this.checkKey(event_text)) {
 			description += "<p>" + event_text + "</p>";
@@ -424,7 +428,7 @@ var helpers = {
 
 		// add event_link with base-url if necessary
 		if (this.checkKey(obj['event_base-url'])) {
-			eventObj['event_link'] = obj['event_base-url'] + obj['event_link-href'];
+			eventObj['event_link'] = obj['event_base-url'] + (obj['event_link-href'] || "");
 		} else {
 			eventObj['event_link'] = obj['event_link-href'];
 		}
