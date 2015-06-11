@@ -5,7 +5,7 @@ var convert = require('gulp-convert');
 var exec = require('child_process').exec;
 
 
-var dir = '20150603';
+var dir = '20150611';
 var predir= './data/';
 
  
@@ -19,7 +19,24 @@ gulp.task('csv2json', function(){
 });
 
 
-gulp.task('processJson', ['csv2json'], function (cb) {
+gulp.task('createDir', ['csv2json'], function (cb) {
+  var cmdString = "IF exist data\\" + dir + "\\processed ( echo data\\" + dir + "\\processed  exists ) ELSE ( mkdir data\\" + dir + "\\processed  && echo data\\" + dir + "\\processed  created)";
+  exec(cmdString, function (err, stdout, stderr) {
+    console.log(stdout);
+    console.log(stderr);
+    cb(err);
+  });
+});
+
+// gulp.task('createDir', function (cb) {
+//   exec('mkdir '+ ' data\\'+  dir + '\\processed', function (err, stdout, stderr) {
+//     console.log(stdout);
+//     console.log(stderr);
+//     cb(err);
+//   });
+// });
+
+gulp.task('processJson', ['csv2json', 'createDir'], function (cb) {
   exec('node processfiles.js '+ predir +  dir + '/', function (err, stdout, stderr) {
     console.log(stdout);
     console.log(stderr);

@@ -1,0 +1,34 @@
+[
+  {
+    "event_link": "I Came From There",
+    "event_link-href": "http://lacapella.bcn.cat/es/exposicions/i-came-there",
+    "event_start": "Miércoles, 27 Mayo, 2015",
+    "event_end": "Domingo, 5 Julio, 2015",
+    "event_image-src": "http://lacapella.bcn.cat/sites/default/files/styles/bildresumen/public/exposicions/00254_01_i_came_from_there.jpg",
+    "event_title1": "I Came From There",
+    "event_title2": "Firas Shehadeh",
+    "event_text": "I came from there es una instalación visual y sonora que ensaya otro tipo de respuesta a la pregunta más habitual cuando llegas a un lugar nuevo: “¿De dónde eres?”. Como refugiado palestino, el trabajo de Firas Shehadeh explora cuestiones biográficas y políticas como el origen, la identidad y la alienación. A partir del poema homónimo del poeta iraquí Sargon Boulus, Shehadeh intenta responder a esta pregunta de una forma distinta: “Soy de allá donde me lleva toda una historia política, social y económica”.",
+    "event_maplink__1": "null",
+    "event_cost__0": "null",
+    "event_category__Exposición__La Capella": "null",
+    "event_organizer__La Capella": "null",
+    "event_venue__La Capella": "null",
+    "event_id": "/es/exposicions/i-came-there"
+  },
+  {
+    "event_link": "Realisme",
+    "event_link-href": "http://lacapella.bcn.cat/es/exposicions/realisme",
+    "event_start": "Miércoles, 27 Mayo, 2015",
+    "event_end": "Domingo, 5 Julio, 2015",
+    "event_image-src": "http://lacapella.bcn.cat/sites/default/files/styles/bildresumen/public/exposicions/capella-imatgea.jpg",
+    "event_title1": "Realisme",
+    "event_title2": "David Bestué",
+    "event_text": "Realisme parte de una investigación acerca de la historia de la ingeniería en España y tiene como eje central el formato expositivo y el lenguaje escultórico. A medio camino entre la intervención arquitectónica de una plaza pública y una tienda de materiales de construcción, diferentes estructuras y volúmenes se distribuyen por la sala ofreciendo un conjunto urbanístico definido por criterios de peso, equilibrio y fuerza.",
+    "event_maplink__1": "null",
+    "event_cost__0": "null",
+    "event_category__Exposición__La Capella": "null",
+    "event_organizer__La Capella": "null",
+    "event_venue__La Capella": "null",
+    "event_id": "/es/exposicions/realisme"
+  }
+]

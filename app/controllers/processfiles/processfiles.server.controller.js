@@ -272,8 +272,17 @@ var helpers = {
 				return makeDateObject(12, "dec", str) ;
 				break;
 			default:
-				//string does not contain a month and must be the first part of a double date of type "1 - 15 Mayo": the string is the day
-				return { "day": parseInt(str.match(/[0-9]+/)), "month": "", "year": "" } ;
+				var ta;
+				if (str.indexOf('.')) {
+					ta = str.split('.');
+					return makeDateObject(parseInt(ta[1]), ".", str);
+				} else if (str.indexOf('/')) {
+					ta = str.split('/');
+					return makeDateObject(parseInt(ta[1]), "/", str);
+				} else {
+					//string does not contain a month and must be the first part of a double date of type "1 - 15 Mayo": the string is the day
+					return { "day": parseInt(str.match(/[0-9]+/)), "month": "", "year": "" } ;
+				}
 				break;
 	    }
     },
@@ -281,6 +290,15 @@ var helpers = {
     	// turns a dateObject with day, month and year properties into a string with the format mm/dd/yyyy
     	var dateString = "";
     	var y;
+
+    	// check days and months for NaN
+    	if (isNaN(dateObject.day)) {
+    		dateObject.day = 1;
+    	}
+    	if (isNaN(dateObject.month)) {
+    		dateObject.month = 1;
+    	}
+
     	if (dateObject.month < 10) {
     		// padding month with 0
     		dateString += "0";
@@ -318,8 +336,8 @@ var helpers = {
         	start_dateObj = this.convertLetterDate(start_date);
         } else {
         	start_dateObj = this.convertNumberDate(start_date);
-        }
-    
+        } 
+
         // if there is an end date
         if (end_date !== "") {
         	// convert end date string to object 
@@ -328,14 +346,16 @@ var helpers = {
             } else {
             	end_dateObj = this.convertNumberDate(end_date);
             }
-            // if start date has no year, fill it with end date year
+            // if start date has no year fill it in
             if (start_dateObj.year == "") {
             	if (end_dateObj.year == "") {
-            		// if end date has no year, fill it with current year
+            		// if end date has no year, fill it with current year,
             		current_year = new Date().getFullYear();
             		end_dateObj.year = current_year;
             	}
-            	start_dateObj.year = end_dateObj.year;
+
+			start_dateObj.year = end_dateObj.year;
+
             }
             // if start date has no month, fill it with end date month
             if (start_dateObj.month == "") {
@@ -350,8 +370,9 @@ var helpers = {
         		current_year = new Date().getFullYear();
         		start_dateObj.year = current_year;
             }
-        }	
-        // format start date            
+        }
+        	
+        // format start date           
         start_date = this.formatDate(start_dateObj);
         return [start_date, end_date];
 	},
