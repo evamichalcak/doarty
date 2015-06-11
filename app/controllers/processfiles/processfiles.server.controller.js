@@ -169,43 +169,51 @@ var helpers = {
     		var resultArray = [];
     		var h;
     		string = string.toLowerCase();
-    		if (string.indexOf(code) < 0) {
-    			//string does not contain a month and must be the first part of a double date of type "1 - 15 Mayo": the string is the day
-    			resultArray[0] = parseInt(string.match(/[0-9]+/));
-    			resultArray[1] = "";
-    			resultArray[2] = "";
-    		}
-    		if (string.indexOf(code) == 0) {
-    			// month is first, checking for anglosaxon date formats with day after month
-    			if (string.match(/[0-9]+st/)) {
-    				helperArray = string.split('st');
-    			} else if (string.match(/[0-9]+nd/)) {
-    				helperArray = string.split('nd');
-    			} else if (string.match(/[0-9]+rd/)) {
-    				helperArray = string.split('rd');
-    			} else if (string.match(/[0-9]+th/)) {
-    				helperArray = string.split('th');
-    			}
-    			if (helperArray.length > 0) {
-    				// there was a split performed on an anglosaxon date format
-    				if (helperArray.length > 2) {
-    					// if an erroneous split occured like with auguST, remove it
-    					helperArray.pop();
-    				}
-    			} else  {
-    				console.log("No day found");
-    			}        			 			
-    		} else {
-    			// normal day-month-year format, splitting on month
-    			helperArray = string.split(code);
-    		}
-    		resultArray[0] = parseInt(helperArray[0].match(/[0-9]+/));
-			resultArray[1] = month;
-			h = parseInt(helperArray[1].match(/[0-9]+/));
-			if (isNaN(h)) {
-				resultArray[2] = "";   
+    		if (/[a-z]/i.test(code)) {
+	    		if (string.indexOf(code) < 0) {
+	    			//string does not contain a month and must be the first part of a double date of type "1 - 15 Mayo": the string is the day
+	    			resultArray[0] = parseInt(string.match(/[0-9]+/));
+	    			resultArray[1] = "";
+	    			resultArray[2] = "";
+	    		}
+	    		if (string.indexOf(code) == 0) {
+	    			// month is first, checking for anglosaxon date formats with day after month
+	    			if (string.match(/[0-9]+st/)) {
+	    				helperArray = string.split('st');
+	    			} else if (string.match(/[0-9]+nd/)) {
+	    				helperArray = string.split('nd');
+	    			} else if (string.match(/[0-9]+rd/)) {
+	    				helperArray = string.split('rd');
+	    			} else if (string.match(/[0-9]+th/)) {
+	    				helperArray = string.split('th');
+	    			}
+	    			if (helperArray.length > 0) {
+	    				// there was a split performed on an anglosaxon date format
+	    				if (helperArray.length > 2) {
+	    					// if an erroneous split occured like with auguST, remove it
+	    					helperArray.pop();
+	    				}
+	    			} else  {
+	    				console.log("No day found");
+	    			}        			 			
+	    		} else {
+	    			// normal day-month-year format, splitting on month
+	    			helperArray = string.split(code);
+	    		}
+	    		resultArray[0] = parseInt(helperArray[0].match(/[0-9]+/));
+				resultArray[1] = month;
+				h = parseInt(helperArray[1].match(/[0-9]+/));
+				if (isNaN(h)) {
+					resultArray[2] = "";   
+				} else {
+					resultArray[2] = h;   
+				}
 			} else {
-				resultArray[2] = h;   
+				//code is either "." or "/": there is no text-month
+				helperArray = string.split(code);
+				resultArray[0] = parseInt(helperArray[0].match(/[0-9]+/));
+				resultArray[1] = parseInt(helperArray[1]) || "";
+				resultArray[2] =parseInt(helperArray[2]) || "";
 			}
         	return { "day": resultArray[0], "month": resultArray[1], "year": resultArray[2] };
     	}
