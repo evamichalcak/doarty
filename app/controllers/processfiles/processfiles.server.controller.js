@@ -429,24 +429,28 @@ var helpers = {
 		}
 		return title;
 	},
-	makeDescription: function(event_image, event_title, event_text, event_link) { //tested
-		// constructs descirption text of the format: <img src='event_image' width='228' height='182' alt='title' /><p>event_text</p><p><a href='event_link' target='_blank'>+info</a></p>
-		var description = '';
-		var title = '';
-		if (this.checkKey(event_title)) {
-			title = event_title;
-		}
-		if (this.checkKey(event_image)) {
-			description = "<p><img src='" + event_image + "' width='228' height='182' alt='" + title + "' /></p>";
-		}
-		if (this.checkKey(event_text)) {
-			description += "<p>" + event_text + "</p>";
-		}
-		if (this.checkKey(event_link)) {
-			description += "<p><a href='" + event_link + "' target='_blank'>+info</a></p>";
-		}
-		return description;
-	},
+    cleanImage: function(event_image) {
+        // replaces https with http
+        return event_image.replace(/^https:\/\//i, 'http://');;
+    },
+    makeDescription: function(event_image, event_title, event_text, event_link) { //tested
+        // constructs descirption text of the format: <img src='event_image' width='228' height='182' alt='title' /><p>event_text</p><p><a href='event_link' target='_blank'>+info</a></p>
+        var description = '';
+        var title = '';
+        if (this.checkKey(event_title)) {
+            title = event_title;
+        }
+        if (this.checkKey(event_image)) {
+            description = "<p><img src='" + this.cleanImage(event_image) + "' width='228' height='182' alt='" + title + "' /></p>";
+        }
+        if (this.checkKey(event_text)) {
+            description += "<p>" + event_text + "</p>";
+        }
+        if (this.checkKey(event_link)) {
+            description += "<p><a href='" + event_link + "' target='_blank'>+info</a></p>";
+        }
+        return description;
+    },
 	formatEventObject: function(obj) { //tested 
 		// loads a scraped object and formats it for CSV import
 		var eventObj = {};
@@ -478,8 +482,8 @@ var helpers = {
 		// add event_category
 		eventObj['event_category'] = obj['event_category'];
 
-		// add event_maplink
-		eventObj['event_maplink'] = obj['event_maplink'];
+		// DEPRECATED: add event_maplink (now beeing added as constant)
+		//eventObj['event_maplink'] = obj['event_maplink'];
 
 		// add event_organizer
 		eventObj['event_organizer'] = obj['event_organizer'];
@@ -489,6 +493,13 @@ var helpers = {
 
 		// add event_cost
 		eventObj['event_cost'] = obj['event_cost'];
+
+        // add constants
+        eventObj['event_map'] = 1;
+        eventObj['event_maplink'] = 1;
+        eventObj['event_allday'] = (!(obj['event_start-time']) + 0);
+        eventObj['event_start-time'] = obj['event_start-time'] || '';
+        eventObj['event_end-time'] = obj['event_end-time'] || '';
 
 		// return the newly created object
 		return eventObj;
