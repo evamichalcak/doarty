@@ -5,7 +5,7 @@ var convert = require('gulp-convert');
 var exec = require('child_process').exec;
 
 
-var dir = '20151024';
+var dir = '20160208';
 var predir= './data/';
 
  
@@ -24,6 +24,7 @@ gulp.task('createDir', ['csv2json'], function (cb) {
   exec(cmdString, function (err, stdout, stderr) {
     console.log(stdout);
     console.log(stderr);
+    console.log(process.env.MYAPP);
     cb(err);
   });
 });
