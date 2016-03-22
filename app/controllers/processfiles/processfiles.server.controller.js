@@ -444,8 +444,9 @@ var helpers = {
             description += "<img src='" + this.cleanImage(event_image) + "' width='228' height='182' alt='" + title + "' />";
         }
         if (this.checkKey(event_text)) {
-            description += event_text + "</p>";
+            description += event_text;
         }
+        description += "</p>";
         if (this.checkKey(event_link)) {
             description += "<p><a href='" + event_link + "' target='_blank'>+info</a></p>";
         }
