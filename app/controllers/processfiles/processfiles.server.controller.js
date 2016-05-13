@@ -435,17 +435,18 @@ var helpers = {
     },
     makeDescription: function(event_image, event_title, event_text, event_link) { //tested
         // constructs descirption text of the format: <img src='event_image' width='228' height='182' alt='title' /><p>event_text</p><p><a href='event_link' target='_blank'>+info</a></p>
-        var description = '';
+        var description = '<p>';
         var title = '';
         if (this.checkKey(event_title)) {
             title = event_title;
         }
         if (this.checkKey(event_image)) {
-            description = "<p><img src='" + this.cleanImage(event_image) + "' width='228' height='182' alt='" + title + "' /></p>";
+            description += "<img src='" + this.cleanImage(event_image) + "' width='228' height='182' alt='" + title + "' />";
         }
         if (this.checkKey(event_text)) {
-            description += "<p>" + event_text + "</p>";
+            description += event_text;
         }
+        description += "</p>";
         if (this.checkKey(event_link)) {
             description += "<p><a href='" + event_link + "' target='_blank'>+info</a></p>";
         }

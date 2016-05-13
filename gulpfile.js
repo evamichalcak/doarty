@@ -4,7 +4,6 @@ var rename = require('gulp-rename');
 var convert = require('gulp-convert');
 var exec = require('child_process').exec;
 
-
 var dir = '20160512';
 var predir= './data/';
 
