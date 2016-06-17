@@ -5,7 +5,7 @@ var convert = require('gulp-convert');
 var exec = require('child_process').exec;
 
 
-var dir = '20160605';
+var dir = '20160614';
 
 var predir= './data/';
 

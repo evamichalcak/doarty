@@ -24,7 +24,7 @@ console.log('processin\'...');
 var helpers = {
 	checkKey: function(key) { //tested
 		// returns true if a key is defined and not empty
-		if (((typeof key) !== "undefined") && (key !== '')) {
+		if (((typeof key) !== "undefined") && (key !== '') && (key !== 'null')) {
 				return true;
 		} else {
 			return false;
@@ -325,19 +325,52 @@ var helpers = {
     	dateString += y;
     	return dateString;
     },
-	processDate: function(start_date, end_date) { //tested
+	extractTime: function(date, separator) { 
+		// this function is kind of custom made to extract time from dates formated by the events calendar plugin (scraping googletranslated sites...)
+		// split start date on time separator and reassign startdate with first part of split (date)
+		var tt, start_time, end_time;
+		tt = date.split(separator);
+		date = tt[0];
+		// if there was a time, start extracting time
+		if (tt.length > 1) {
+    		start_time= tt[1];
+    		// check for from to time
+    		tt = start_time.split('-');
+    		if (tt.length > 1) {
+        		start_time= tt[0];
+        		end_time = tt[1];
+        	}
+    	}
+    	return [date, start_time, end_time]
+
+	},
+	processDate: function(start_date, end_date, separator) { //tested
         // check for double date, convert dates and format them, returning an array with start and end date
-        var arr = [];
+        // the time extracting part of the function is 
+        var arr, tt = [];
         var start_dateObj = {};
         var end_dateObj = {};
-        var current_year;
-        if (!(end_date) || (start_date === end_date)) {
+        var current_year, start_time, end_time;
+        if (!(end_date) || (end_date === 'null') || (start_date === end_date)) {
+			// if a time separator has been passed, extract time from start date (for start-date-only events)
+        	if (!(end_date) || (end_date === 'null') && separator) {
+	        	tt = this.extractTime(start_date, separator);
+	        	start_date = tt[0];
+	        	start_time = tt[1];
+	        	end_time = tt[2];
+	        }
         	//check for double date and return splitted date
             arr = this.cleanDoubleDate(start_date);
             start_date = arr[0];
             // if there is no second date, asign empty string
             end_date = arr[1] || "";
         }
+
+        // @todo check if a time separator has been provided, 
+        // if yes, 
+        //		check if both dates are the same
+        //			split only first date, assign date and split time into start and end, assign
+        // 		else split both dates in date and time, assign date and time
 
         // convert start date string to object 
         if (/[a-z]/i.test(start_date)) {
@@ -382,7 +415,7 @@ var helpers = {
         	
         // format start date           
         start_date = this.formatDate(start_dateObj);
-        return [start_date, end_date];
+        return [start_date, end_date, start_time, end_time];
 	},
 	deduplicateByKey: function(JSONarray, key) { //tested
 		var indices = [];
@@ -459,7 +492,6 @@ var helpers = {
 
 		// get properties from compound keys "key-name__key-value"
 		obj = this.addPropertiesFromKeys(obj);
-
 		// add event_link with base-url if necessary
 		if (this.checkKey(obj['event_base-url'])) {
 			eventObj['event_link'] = obj['event_base-url'] + (obj['event_link-href'] || "");
@@ -470,15 +502,29 @@ var helpers = {
 		// addevent_title
 		eventObj['event_title'] = this.getTitle(obj['event_title'], obj['event_title1'], obj['event_title2']);
 
-		// add event_description
-		eventObj['event_description'] = this.makeDescription(obj['event_image-src'], eventObj['event_title'], obj['event_text'], eventObj['event_link']);
+		// add event_description: if the full description is provided, assign it, else construct desctiptions out of image, link and text.
+
+		if (this.checkKey(obj['event_full-description'])) {
+			eventObj['event_description'] = obj['event_full-description']
+		} else {
+			eventObj['event_description'] = this.makeDescription(obj['event_image-src'], eventObj['event_title'], obj['event_text'], eventObj['event_link']);
+		}
+
+		var timeSeparator = false;
+		if (this.checkKey(obj['event_date-time-separator'])) {
+			timeSeparator = obj['event_date-time-separator'];
+		}
 
 		// get both formatted dates
-		arr = this.processDate(obj['event_start'], obj['event_end']);
+		arr = this.processDate(obj['event_start'], obj['event_end'], timeSeparator);
 		// add event_start
 		eventObj['event_start'] = arr[0];
 		// add event_end
 		eventObj['event_end'] = arr[1];
+		//add event times to import object, even if they are undefined
+		obj['event_start-time']  = arr[2];
+		obj['event_end-time'] = arr[3];
+
 
 		// add event_category
 		eventObj['event_category'] = obj['event_category'];
