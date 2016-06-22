@@ -9,6 +9,11 @@ var dir = '20160614';
 
 var predir= './data/';
 
+/*
+dir = 'BCN_EN\\2016\\06-2';
+predir= './data/';
+//*/
+
  
 gulp.task('csv2json', function(){
   gulp.src([predir+dir+'/raw/*.csv'])
