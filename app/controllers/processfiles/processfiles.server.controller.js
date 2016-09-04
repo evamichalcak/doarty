@@ -164,18 +164,23 @@ var helpers = {
     },
     convertLetterDate: function(str) { //tested
     	// finds 3-letter code of month (es-ES, ca-ES, en-US) in a string and returns corresponding month number
+
+		// remove martes, in order not to trigger with 'mar' code
+		str = str.replace(/ *\b\S*?martes\S*\b/g, '');
+		str = str.replace(/ *\b\S*?Martes\S*\b/g, '');
+
     	function makeDateObject(month, code, string) {
     		var helperArray = [];
     		var resultArray = [];
     		var h;
     		string = string.toLowerCase();
+    		if (string.indexOf(code) < 0) {
+    			//string does not contain a month and must be the first part of a double date of type "1 - 15 Mayo": the string is the day
+    			resultArray[0] = parseInt(string.match(/[0-9]+/));
+    			resultArray[1] = "";
+    			resultArray[2] = "";
+    		}
     		if (/[a-z]/i.test(code)) {
-	    		if (string.indexOf(code) < 0) {
-	    			//string does not contain a month and must be the first part of a double date of type "1 - 15 Mayo": the string is the day
-	    			resultArray[0] = parseInt(string.match(/[0-9]+/));
-	    			resultArray[1] = "";
-	    			resultArray[2] = "";
-	    		}
 	    		if (string.indexOf(code) == 0) {
 	    			// month is first, checking for anglosaxon date formats with day after month
 	    			if (string.match(/[0-9]+st/)) {
