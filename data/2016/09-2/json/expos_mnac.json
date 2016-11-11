@@ -1,0 +1,62 @@
+[
+  {
+    "event_link": "Pere Torné Esquius",
+    "event_link-href": "http://www.museunacional.cat/es/pere-torne-esquius-0",
+    "event_title": "Pere Torné Esquius",
+    "event_image-src": "http://www.museunacional.cat/sites/default/files/024666-000_pere_torne_esquius._pati_amb_balanci.jpg",
+    "event_text": "null",
+    "event_start": "15/03/2017",
+    "event_end": "09/07/2017",
+    "event_maplink__1": "null",
+    "event_cost__12": "null",
+    "event_organizer__MNAC": "null",
+    "event_venue__MNAC": "null",
+    "event_category__Exposición__MNAC__Arte Clásico": "null",
+    "event_id": "Pere Torné Esquius"
+  },
+  {
+    "event_link": "Gala Dalí",
+    "event_link-href": "http://www.museunacional.cat/es/gala-dali",
+    "event_title": "Gala Dalí",
+    "event_image-src": "http://www.museunacional.cat/sites/default/files/214663-000_salvador_dali._naixement_duna_deessa.jpg",
+    "event_text": "null",
+    "event_start": "07/07/2018",
+    "event_end": "14/10/2018",
+    "event_maplink__1": "null",
+    "event_cost__12": "null",
+    "event_organizer__MNAC": "null",
+    "event_venue__MNAC": "null",
+    "event_category__Exposición__MNAC__Arte Clásico": "null",
+    "event_id": "Gala Dalí"
+  },
+  {
+    "event_link": "Ramón Pichot",
+    "event_link-href": "http://www.museunacional.cat/es/ramon-pichot",
+    "event_title": "Ramón Pichot",
+    "event_image-src": "http://www.museunacional.cat/sites/default/files/002263-d_ramon_pichot._davant_el_bressol.jpg",
+    "event_text": "null",
+    "event_start": "21/09/2017",
+    "event_end": "07/01/2018",
+    "event_maplink__1": "null",
+    "event_cost__12": "null",
+    "event_organizer__MNAC": "null",
+    "event_venue__MNAC": "null",
+    "event_category__Exposición__MNAC__Arte Clásico": "null",
+    "event_id": "Ramón Pichot"
+  },
+  {
+    "event_link": "William Morris y las Arts & Crafts en Gran Bretanya",
+    "event_link-href": "http://www.museunacional.cat/es/william-morris-y-las-arts-crafts-en-gran-bretanya",
+    "event_title": "William Morris y las Arts & Crafts en Gran Bretanya",
+    "event_image-src": "http://www.museunacional.cat/sites/default/files/071970-000_079184_anonim._tetera.jpg",
+    "event_text": "null",
+    "event_start": "22/02/2018",
+    "event_end": "20/05/2018",
+    "event_maplink__1": "null",
+    "event_cost__12": "null",
+    "event_organizer__MNAC": "null",
+    "event_venue__MNAC": "null",
+    "event_category__Exposición__MNAC__Arte Clásico": "null",
+    "event_id": "William Morris y las Arts & Crafts en Gran Bretanya"
+  }
+]
