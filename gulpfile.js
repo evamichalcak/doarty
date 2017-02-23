@@ -3,14 +3,16 @@ var csv2json = require('gulp-csv2json');
 var rename = require('gulp-rename');
 var convert = require('gulp-convert');
 var exec = require('child_process').exec;
+var convertEncoding = require('gulp-convert-encoding');
 
 
-var dir = '2016\\11-2';
+
+var dir = '2017\\02-2';
 
 var predir= './data/';
 
 /*
-dir = 'BCN_EN\\2016\\11-1';
+dir = 'BCN_EN\\2017\\02-2';
 predir= './data/';
 //*/
 
@@ -59,6 +61,15 @@ gulp.task('json2csv', ['csv2json', 'processJson'], function(){
      }))
     .pipe(gulp.dest(predir+dir+'/csv/'));
 });
+
+
+gulp.task('encode', ['csv2json', 'processJson', 'json2csv'], function () {
+    return gulp.src([predir+dir+'/csv/*.csv'])
+        .pipe(convertEncoding({to: 'utf8'}))
+        .pipe(gulp.src([predir+dir+'/csv/*.csv']));
+});
+
+
  
-gulp.task('default', ['csv2json', 'processJson', 'json2csv']);
+gulp.task('default', ['csv2json', 'processJson', 'json2csv', 'encode']);
 
