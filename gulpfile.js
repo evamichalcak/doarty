@@ -16,6 +16,11 @@ dir = 'BCN_EN\\2017\\02-2';
 predir= './data/';
 //*/
 
+//*
+dir = 'ZH\\2017\\03-1';
+predir= './data/';
+//*/
+
  
 gulp.task('csv2json', function(){
   gulp.src([predir+dir+'/raw/*.csv'])
