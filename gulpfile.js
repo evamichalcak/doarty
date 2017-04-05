@@ -5,12 +5,12 @@ var convert = require('gulp-convert');
 var exec = require('child_process').exec;
 
 
-var dir = '2016\\11-2';
+var dir = '2017\\02-2';
 
 var predir= './data/';
 
 /*
-dir = 'BCN_EN\\2016\\11-1';
+dir = 'BCN_EN\\2017\\02-2';
 predir= './data/';
 //*/
 
