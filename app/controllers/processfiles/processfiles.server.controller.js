@@ -585,6 +585,9 @@ var helpers = {
 			eventArr.push(obj);
 		}
 		return eventArr;
+	},
+	reformatAggregetorPlugin: function(obj) {
+		// reformat event objects to format required by modern tribe event aggregator plugin (https://theeventscalendar.com/knowledgebase/csv-files-options-and-examples/)
 	}
  }
 

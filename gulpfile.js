@@ -1,5 +1,6 @@
 var gulp = require('gulp');
 var csv2json = require('gulp-csv2json');
+var json2csv = require('gulp-json2csv');
 var rename = require('gulp-rename');
 var convert = require('gulp-convert');
 var exec = require('child_process').exec;
@@ -7,7 +8,7 @@ var convertEncoding = require('gulp-convert-encoding');
 
 
 
-var dir = '2017\\04-1';
+var dir = 'test\\2017\\04-1';
 
 var predir= './data/';
 
@@ -60,10 +61,10 @@ gulp.task('processJson', ['csv2json', 'createDir'], function (cb) {
  
 gulp.task('json2csv', ['csv2json', 'processJson'], function(){
   gulp.src([predir+dir+'/processed/*.json'])
-    .pipe(convert({
-      from: 'json',
-      to: 'csv'
-     }))
+    .pipe(json2csv())
+    .pipe(rename({
+      extname: ".csv"
+    }))
     .pipe(gulp.dest(predir+dir+'/csv/'));
 });
 
