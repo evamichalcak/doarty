@@ -7,11 +7,12 @@
  var express = require('express');
  var jf = require('jsonfile');
  var util = require('util');
+ var jt = require('json-transcriber');
  //var csvconverter = require('json-2-csv');
  var fs = require('fs');
  
-
-
+// config options
+var aggregetorPluginFormat = true;
 
 
 /**
@@ -566,6 +567,8 @@ var helpers = {
         eventObj['event_allday'] = (!(obj['event_start-time']) + 0);
         eventObj['event_start-time'] = obj['event_start-time'] || '';
         eventObj['event_end-time'] = obj['event_end-time'] || '';
+        eventObj['event_text'] = obj['event_text'] || '';
+        eventObj['event_image'] = obj['event_image-src'] || '';
 
 		// return the newly created object
 		return eventObj;
@@ -581,6 +584,10 @@ var helpers = {
 		for (var i = 0; i < len; i++) {
 			// format object
 			obj = this.formatEventObject(JSONarray[i]);
+			// check if aggregator plugin format is on and if it is, reformat object
+			if (aggregetorPluginFormat) {
+				obj = this.reformatAggregetorPlugin(obj);
+			}
 			// add object to new array
 			eventArr.push(obj);
 		}
@@ -588,6 +595,25 @@ var helpers = {
 	},
 	reformatAggregetorPlugin: function(obj) {
 		// reformat event objects to format required by modern tribe event aggregator plugin (https://theeventscalendar.com/knowledgebase/csv-files-options-and-examples/)
+		var mapping = {
+			"EVENT NAME": "event_title",
+			"VENUE NAME": "event_venue",
+			"ORGANIZER NAME": "event_organizer",
+			"START DATE": "event_start",
+			"START TIME": "event_start-time",
+			"END DATE": "event_end",
+			"END TIME": "event_end-time",
+			"ALL DAY EVENT?": "event_allday",
+			"CATEGORIES": "event_category",
+			"EVENT COST": "event_cost",
+			"EVENT WEBSITE": "event_link",
+			"SHOW MAP LINK?": "event_maplink",
+			"SHOW MAP?": "event_map",
+			"EVENT DESCRIPTION": "event_text",
+			"EVENT IMAGE" : "event_image"
+		}
+
+		return jt(mapping, obj);
 	}
  }
 
