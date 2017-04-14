@@ -567,7 +567,8 @@ var helpers = {
         eventObj['event_allday'] = (!(obj['event_start-time']) + 0);
         eventObj['event_start-time'] = obj['event_start-time'] || '';
         eventObj['event_end-time'] = obj['event_end-time'] || '';
-        eventObj['event_text'] = obj['event_text'].replace(/\n/g, "<br />") || '';
+        var tempdesc = this.makeDescription(obj['event_image-src'], eventObj['event_title'], obj['event_text']);
+        eventObj['event_text'] = tempdesc.replace(/\n/g, "<br />") || '';
         eventObj['event_image'] = obj['event_image-src'] || '';
 
 		// return the newly created object
