@@ -480,6 +480,8 @@ var helpers = {
 				title += event_title2;
 			}
 		}
+		title = title.replace(/\n/g, " ");
+		title = title.replace(/\t/g, " ");
 		return title;
 	},
     cleanImage: function(event_image) {
@@ -568,6 +570,7 @@ var helpers = {
         eventObj['event_start-time'] = obj['event_start-time'] || '';
         eventObj['event_end-time'] = obj['event_end-time'] || '';
         var tempdesc = this.makeDescription(obj['event_image-src'], eventObj['event_title'], obj['event_text']);
+        tempdesc = tempdesc.replace(/\t/g, " ");
         eventObj['event_text'] = tempdesc.replace(/\n/g, "<br />") || '';
         eventObj['event_image'] = obj['event_image-src'] || '';
 
