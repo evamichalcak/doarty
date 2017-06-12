@@ -171,7 +171,7 @@ var helpers = {
 
     	function makeDateObject(month, code, string) {
     		var helperArray = [];
-    		var resultArray = [];
+    		var resultArray = [1, 1, 1970];
     		var h;
     		string = string.toLowerCase();
     		if (string.indexOf(code) < 0) {
@@ -199,20 +199,25 @@ var helpers = {
 	    					helperArray.pop();
 	    				}
 	    			} else  {
-	    				console.log("No day found");
+	    				console.log("No day found, returning fallback 01/01/1970");
+
 	    			}        			 			
 	    		} else {
 	    			// normal day-month-year format, splitting on month
 	    			helperArray = string.split(code);
 	    		}
-	    		resultArray[0] = parseInt(helperArray[0].match(/[0-9]+/));
+	    		if (helperArray[0]) {
+	    			resultArray[0] = parseInt(helperArray[0].match(/[0-9]+/));
+	    		}
 				resultArray[1] = month;
-				h = parseInt(helperArray[1].match(/[0-9]+/));
-				if (isNaN(h)) {
-					resultArray[2] = "";   
-				} else {
-					resultArray[2] = h;   
-				}
+	    		if (helperArray[1]) {
+					h = parseInt(helperArray[1].match(/[0-9]+/));
+					if (isNaN(h)) {
+						resultArray[2] = "";   
+					} else {
+						resultArray[2] = h;   
+					}
+	    		}
 			} else {
 				//code is either "." or "/": there is no text-month
 				helperArray = string.split(code);
@@ -237,6 +242,9 @@ var helpers = {
 				return makeDateObject(2, "feb", str) ;
 				break;
 			case /mar/i.test(str):
+				return makeDateObject(3, "mar", str) ;
+				break;
+			case /mär/i.test(str):
 				return makeDateObject(3, "mar", str) ;
 				break;
 			case /abr/i.test(str):
@@ -272,6 +280,9 @@ var helpers = {
 			case /oct/i.test(str):
 				return makeDateObject(10, "oct", str) ;
 				break;
+			case /okt/i.test(str):
+				return makeDateObject(10, "oct", str) ;
+				break;
 			case /nov/i.test(str):
 				return makeDateObject(11, "nov", str) ;
 				break;
@@ -282,6 +293,9 @@ var helpers = {
 				return makeDateObject(12, "des", str) ;
 				break;
 			case /dec/i.test(str):
+				return makeDateObject(12, "dec", str) ;
+				break;
+			case /dez/i.test(str):
 				return makeDateObject(12, "dec", str) ;
 				break;
 			default:
