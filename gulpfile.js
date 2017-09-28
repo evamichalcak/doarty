@@ -8,7 +8,7 @@ var convertEncoding = require('gulp-convert-encoding');
 
 
 
-var dir = '2017\\06-1';
+var dir = '2017\\09-2';
 
 var predir= './data/';
 

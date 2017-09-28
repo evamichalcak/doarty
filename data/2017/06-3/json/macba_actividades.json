@@ -1,0 +1,34 @@
+[
+  {
+    "event_title1": "Departamento Exotérico 2017",
+    "event_title2": "Grupo de autoformación en arte",
+    "event_image-src": "http://www.macba.cat/uploads/20170314/Dep.exotn_ric_dibuix_Jordi.3.jpg",
+    "event_text": "Departamento exotérico es un proyecto artístico y una plataforma educativa dirigida a estudiantes de grados universitarios, ciclos de formación y enseñanzas artísticas. El proyecto indaga en la posibilidad de generar un espacio para el intercambio de ideas, experiencias y conocimientos entorno y a partir del arte contemporáneo desde un planteamiento educativo que propicia la horizontalidad y la autogestión entre sus participantes. \n\n\n\nDepartamento exotérico se desarrolla de febrero a diciembre, a partir de una serie de sesiones diversas que combinan charlas, visitas a diferentes espacios culturales, visionados y sesiones con invitados. Bajo la consigna \"¿Qué quieres aprender? ¿Qué puedes enseñar?\", los intereses de los participantes construyen la programación del proyecto y abren un espacio donde poder acceder a respuestas alternativas a las del contexto educativo reglado.",
+    "event_start": "01 ene.",
+    "event_end": "31 dic. 2017",
+    "event_venue": "",
+    "event_link": "",
+    "event_link-href": "http://www.macba.cat/es/departamento-exoterico-2017/1//activ",
+    "event_organizer__MACBA": "null",
+    "event_category__Actividad__MACBA": "null",
+    "event_maplink__1": "null",
+    "event_cost__": "null",
+    "event_id": "/es/departamento-exoterico-2017/1//activ"
+  },
+  {
+    "event_title1": "Lorem Ipsum",
+    "event_title2": "Lorem Ipsum, extravagancia sonora las noches de los jueves de julio en el MACBA",
+    "event_image-src": "http://www.macba.cat/uploads/20170614/bat_parl.4.png",
+    "event_text": "¿Qué pasa cuando el virtuosismo del percusionista de N.M.O. pone a prueba su vigorexia hasta la extenuación, acompañado por la adrenalina de la cultura de club y el vocabulario de la computer music? ¿Qué pasa cuando Judy Dunaway manosea, estruja y tensa la delicada superficie de un globo de látex, como si fuese una extensión de su gesto y su cuerpo? ¿Qué pasa cuando Alex Mendizabal coge ese mismo instrumento, lo tunea y llena todo el espacio de globos durante todo un día? ¿Qué pasa cuando los hits del rap pasan por el filtro vocal de Lina Lapelyte? ¿Qué pasa cuando Fela Borbone convierte su síndrome de Diógenes en un Mierdofón? ¿Qué le pasa por la cabeza a Goodiepal? Lorem Ipsum pasa.\n\n\n\nLorem Ipsum presenta una serie de propuestas que operan en los márgenes y los pliegues de muchas cosas a la vez: música, performance, investigación artística, experimentación; operaciones diversas, dispares y disparatadas, de desplazamiento de lenguajes, significados, gestos y objetos, desde lo musical, en busca de una amable extrañeza.\n\n\n\nComisariado por Alicia Escobio y Anna Ramos",
+    "event_start": "06 jul.",
+    "event_end": "27 jul. 2017",
+    "event_venue": "",
+    "event_link": "",
+    "event_link-href": "http://www.macba.cat/es/lorem-ipsum/1//activ",
+    "event_organizer__MACBA": "null",
+    "event_category__Actividad__MACBA": "null",
+    "event_maplink__1": "null",
+    "event_cost__": "null",
+    "event_id": "/es/lorem-ipsum/1//activ"
+  }
+]
