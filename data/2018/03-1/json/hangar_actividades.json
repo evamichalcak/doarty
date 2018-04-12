@@ -1,0 +1,53 @@
+[
+  {
+    "web-scraper-order": "1519986259-73",
+    "web-scraper-start-url": "https://hangar.org/es/category/programa-hangar/formacio-continua/",
+    "event_title": "Net Art Workshop: Interactividad Web y Visualización de datos programando con Javascript",
+    "event_text": "16 -30 abril y 2 mayo 2018",
+    "event_start": "16 -30 abril y 2 mayo 2018",
+    "event_end": "16 -30 abril y 2 mayo 2018",
+    "event_venue__Hangar": "null",
+    "event_link": "",
+    "event_link-href": "https://hangar.org/es/news/espanol-net-art-workshop-interactividad-web-y-visualizacion-de-datos-programando-con-javascript/",
+    "event_category__Actividad__Espacios alternativos__Taller": "null",
+    "event_maplink__1": "null",
+    "event_cost__": "null",
+    "event_id": "https://hangar.org/es/news/espanol-net-art-workshop-interactividad-web-y-visualizacion-de-datos-programando-con-javascript/",
+    "event_image-src": "https://hangar.org/webnou/wp-content/uploads/2018/02/000-200x150.jpg",
+    "event_organizer__Hangar": "null"
+  },
+  {
+    "web-scraper-order": "1519986242-67",
+    "web-scraper-start-url": "https://hangar.org/es/category/programa-hangar/formacio-continua/",
+    "event_title": "Brioclaje para New Artesans. Curso de introducción a la construcción y al montaje",
+    "event_text": "1, 8, 15, 22, 29  mazo 2018",
+    "event_start": "1, 8, 15, 22, 29  mazo 2018",
+    "event_end": "1, 8, 15, 22, 29  mazo 2018",
+    "event_venue__Hangar": "null",
+    "event_link": "",
+    "event_link-href": "https://hangar.org/es/news/bricolatge-per-a-new-artesans-curs-dintroduccio-a-la-construccio-i-al-muntatge/",
+    "event_category__Actividad__Espacios alternativos__Taller": "null",
+    "event_maplink__1": "null",
+    "event_cost__": "null",
+    "event_id": "https://hangar.org/es/news/bricolatge-per-a-new-artesans-curs-dintroduccio-a-la-construccio-i-al-muntatge/",
+    "event_image-src": "https://hangar.org/webnou/wp-content/uploads/2016/10/taller-newartesans-1-200x150.png",
+    "event_organizer__Hangar": "null"
+  },
+  {
+    "web-scraper-order": "1519986251-71",
+    "web-scraper-start-url": "https://hangar.org/es/category/programa-hangar/formacio-continua/",
+    "event_title": "Taller de impresión 3D a cargo de Patricio Rivera",
+    "event_text": "14 abril 2018",
+    "event_start": "14 abril 2018",
+    "event_end": "14 abril 2018",
+    "event_venue__Hangar": "null",
+    "event_link": "",
+    "event_link-href": "https://hangar.org/es/workshops-artist2artists/espanol-taller-de-impresion-3d-a-cargo-de-patricio-rivera/",
+    "event_category__Actividad__Espacios alternativos__Taller": "null",
+    "event_maplink__1": "null",
+    "event_cost__": "null",
+    "event_id": "https://hangar.org/es/workshops-artist2artists/espanol-taller-de-impresion-3d-a-cargo-de-patricio-rivera/",
+    "event_image-src": "https://hangar.org/webnou/wp-content/uploads/2017/07/18ppd6d7pkzzzjpg-200x150.jpg",
+    "event_organizer__Hangar": "null"
+  }
+]

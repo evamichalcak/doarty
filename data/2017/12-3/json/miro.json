@@ -1,0 +1,36 @@
+[
+  {
+    "web-scraper-order": "1513978324-100",
+    "web-scraper-start-url": "http://www.fmirobcn.org/exposiciones/",
+    "event_title": "Itō Shinsui. Tradición y modernidad",
+    "event_start": "01/03/2018",
+    "event_end": "20/05/2018",
+    "event_image-src": "/media/upload/cache/ito_shinsui_davant_del_mirall_1916_crop_151316699762_255.jpg",
+    "event_text": "La Fundació Joan Miró acoge la obra de uno de los grandes maestros del shin hanga, Itō Shinsui (1898-1972), cuya actitud artística y estética nos ayuda a hacer evidentes las relaciones sutiles y profundas entre la obra de Joan Miró y el pensamiento y el arte japoneses.",
+    "event_link": "sobre \"Itō Shinsui. Tradición y modernidad\"",
+    "event_link-href": "https://www.fmirobcn.org/es/exposiciones/5738/ito-shinsui-tradicion-y-modernidad",
+    "event_id": "/es/exposiciones/5738/ito-shinsui-tradicion-y-modernidad",
+    "event_maplink__1": "null",
+    "event_organizer__Fundación Joan Miró": "null",
+    "event_venue__Fundación Joan Miró": "null",
+    "event_cost__7": "null",
+    "event_category__Exposición__Fundación Joan Miró__Próximas inauguraciones": "null"
+  },
+  {
+    "web-scraper-order": "1513978324-102",
+    "web-scraper-start-url": "http://www.fmirobcn.org/exposiciones/",
+    "event_title": "Retornos de luz",
+    "event_start": "30/01/2018",
+    "event_end": "13/05/2018",
+    "event_image-src": "/media/upload/cache/toni_garcia_151309295262_255.gif",
+    "event_text": "La relación con la cera de abeja ha llevado al maestro cerero Toni Garcia a adentrarse en el mundo de la fotografía. Aproximándose a la sinergia que se crea entre luz y oscuridad, Garcia observa lo que le rodea desde una visión distinta.",
+    "event_link": "sobre \"Retornos de luz\"",
+    "event_link-href": "https://www.fmirobcn.org/es/exposiciones/5737/retornos-de-luz",
+    "event_id": "/es/exposiciones/5737/retornos-de-luz",
+    "event_maplink__1": "null",
+    "event_organizer__Fundación Joan Miró": "null",
+    "event_venue__Fundación Joan Miró": "null",
+    "event_cost__7": "null",
+    "event_category__Exposición__Fundación Joan Miró__Próximas inauguraciones": "null"
+  }
+]

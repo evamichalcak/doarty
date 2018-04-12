@@ -1,0 +1,38 @@
+[
+  {
+    "web-scraper-order": "1513976327-15",
+    "web-scraper-start-url": "http://lacapella.bcn.cat/es/exposicions/futures",
+    "event_link": "El gafe y la revolución (La revolución gafada)",
+    "event_link-href": "http://lacapella.bcn.cat/es/exposicions/el-gafe-y-la-revoluci%C3%B3n-la-revoluci%C3%B3n-gafada",
+    "event_start": "Miércoles, 24 Enero, 2018",
+    "event_end": "Domingo, 1 Abril, 2018",
+    "event_image-src": "http://lacapella.bcn.cat/sites/default/files/styles/bildresumen/public/exposicions/gaffophone_presentacio.jpg",
+    "event_title1": "El gafe y la revolución (La revolución gafada)",
+    "event_title2": "Dani Montlleó",
+    "event_text": "El misterioso trayecto por París de un coche con un extraño artefacto en el techo recorriendo la ciudad, emitiendo y esparciendo como un virus vibraciones y ondas subsónicas en marzo o abril de 1968, atrajo mi curiosidad. El trayecto, percibido solamente por una pequeña parte de la población, por los Gaston Lagaffe (Tomás el Gafe) de la ciudad y del país, se produjo un mes o dos antes de la Revolución de Mayo del 68. Si, como dicen algunos, la Revolución Soviética de 1917 originariamente no fue más que un happening de Lenin, la revolución parisina del 68 tal vez tiene origen en las malas vibraciones de un gafe.",
+    "event_maplink__1": "null",
+    "event_cost__0": "null",
+    "event_category__Exposición__La Capella__Arte emergente__Arte local__Próximas inauguraciones": "null",
+    "event_organizer__La Capella": "null",
+    "event_venue__La Capella": "null",
+    "event_id": "/es/exposicions/el-gafe-y-la-revoluci%C3%B3n-la-revoluci%C3%B3n-gafada"
+  },
+  {
+    "web-scraper-order": "1513976327-14",
+    "web-scraper-start-url": "http://lacapella.bcn.cat/es/exposicions/futures",
+    "event_link": "Artengo2000",
+    "event_link-href": "http://lacapella.bcn.cat/es/exposicions/artengo2000",
+    "event_start": "Miércoles, 24 Enero, 2018",
+    "event_end": "Domingo, 1 Abril, 2018",
+    "event_image-src": "http://lacapella.bcn.cat/sites/default/files/styles/bildresumen/public/exposicions/camille_magda_artengo2000.jpg",
+    "event_title1": "Artengo2000",
+    "event_title2": "Camille Orny y Magda Vaz",
+    "event_text": "En una Barcelona enredada en la economía colaborativa globalizada, un piso compartido es patrocinado por una multinacional ruso-americana. A cambio de unos escasos bienes materiales, sus habitantes exhiben la marca en la intimidad de su hogar mediante un lote de ropa común.",
+    "event_maplink__1": "null",
+    "event_cost__0": "null",
+    "event_category__Exposición__La Capella__Arte emergente__Arte local__Próximas inauguraciones": "null",
+    "event_organizer__La Capella": "null",
+    "event_venue__La Capella": "null",
+    "event_id": "/es/exposicions/artengo2000"
+  }
+]

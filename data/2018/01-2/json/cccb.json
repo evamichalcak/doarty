@@ -1,0 +1,38 @@
+[
+  {
+    "web-scraper-order": "1516631575-13",
+    "web-scraper-start-url": "http://www.cccb.org/es/exposiciones",
+    "event_link": "Stanley Kubrick",
+    "event_link-href": "http://www.cccb.org/es/exposiciones/ficha/stanley-kubrick/228237",
+    "event_title1": "Stanley Kubrick",
+    "event_image-src": "http://www.cccb.org/rcs_gene/kubric.jpg",
+    "event_text": "Ante la nueva carrera armamentística nuclear y la inminencia de una catástrofe climática a gran escala, ¿Teléfono rojo? Volamos ha­cia Moscú (en inglés original, Dr. Strangelove) es una sátira política de máxima pertinencia. También lo es su final, con la frase «¿Qué pasaría si las mujeres dirigieran el mundo?». 2001 es todavía hoy la película más compleja que se ha hecho nunca sobre el destino de la humanidad y la inteligencia artificial. Y podríamos seguir hablando filme a filme de la actualidad del cine de Kubrick.",
+    "event_organizer__CCCB": "null",
+    "event_maplink__1": "null",
+    "event_cost__6": "null",
+    "event_venue__CCCB": "null",
+    "event_category__CCCB__Exposición__Próximas inauguraciones": "null",
+    "event_id": "http://www.cccb.org/es/exposiciones/ficha/stanley-kubrick/228237",
+    "event_title2": "",
+    "event_start": "18 octubre 2018 - 31 marzo 2019",
+    "event_end": "18 octubre 2018 - 31 marzo 2019"
+  },
+  {
+    "web-scraper-order": "1516631577-14",
+    "web-scraper-start-url": "http://www.cccb.org/es/exposiciones",
+    "event_link": "La luz negra",
+    "event_link-href": "http://www.cccb.org/es/exposiciones/ficha/la-luz-negra/228235",
+    "event_title1": "La luz negra",
+    "event_image-src": "http://www.cccb.org/rcs_gene/llumnegra.jpg",
+    "event_text": "Esta exposición analiza la influencia que diferentes tradiciones secretas han ejercido en el arte desde los años cincuenta hasta hoy. Son tradiciones que se pueden rastrear hasta los orígenes mismos de la civilización y que han servido en varios momentos para estructurar ideas filosóficas, lingüísticas, científicas y espirituales.",
+    "event_organizer__CCCB": "null",
+    "event_maplink__1": "null",
+    "event_cost__6": "null",
+    "event_venue__CCCB": "null",
+    "event_category__CCCB__Exposición__Próximas inauguraciones": "null",
+    "event_id": "http://www.cccb.org/es/exposiciones/ficha/la-luz-negra/228235",
+    "event_title2": "Tradiciones secretas en el arte desde los años 50: ocultismo, magia, esoterismo y misticismo",
+    "event_start": "15 mayo - 21 octubre 2018",
+    "event_end": "15 mayo - 21 octubre 2018"
+  }
+]

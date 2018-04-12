@@ -1,0 +1,53 @@
+[
+  {
+    "web-scraper-order": "1522311736-98",
+    "web-scraper-start-url": "https://hangar.org/es/category/programa-hangar/formacio-continua/",
+    "event_title": "El arte del código: generatividad, interactividad y programación C++ openFrameworks",
+    "event_text": "14-30 mayo 2018",
+    "event_start": "14-30 mayo 2018",
+    "event_end": "14-30 mayo 2018",
+    "event_venue__Hangar": "null",
+    "event_link": "",
+    "event_link-href": "https://hangar.org/es/news/el-arte-del-codigo-generatividad-interactividad-y-programacion-c-openframeworks/",
+    "event_category__Actividad__Espacios alternativos__Taller": "null",
+    "event_maplink__1": "null",
+    "event_cost__": "null",
+    "event_id": "https://hangar.org/es/news/el-arte-del-codigo-generatividad-interactividad-y-programacion-c-openframeworks/",
+    "event_image-src": "https://hangar.org/webnou/wp-content/uploads/2017/12/creativecomputing3-1-200x150.jpg",
+    "event_organizer__Hangar": "null"
+  },
+  {
+    "web-scraper-order": "1522311744-100",
+    "web-scraper-start-url": "https://hangar.org/es/category/programa-hangar/formacio-continua/",
+    "event_title": "Taller de Video mapping aplicado a la instalación y la escenografía",
+    "event_text": "11-27 junio 2018",
+    "event_start": "11-27 junio 2018",
+    "event_end": "11-27 junio 2018",
+    "event_venue__Hangar": "null",
+    "event_link": "",
+    "event_link-href": "https://hangar.org/es/workshops-artist2artists/espanol-taller-de-video-mapping-aplicado-a-la-instalacion-y-la-escenografia/",
+    "event_category__Actividad__Espacios alternativos__Taller": "null",
+    "event_maplink__1": "null",
+    "event_cost__": "null",
+    "event_id": "https://hangar.org/es/workshops-artist2artists/espanol-taller-de-video-mapping-aplicado-a-la-instalacion-y-la-escenografia/",
+    "event_image-src": "https://hangar.org/webnou/wp-content/uploads/2018/03/mapping3-200x150.jpg",
+    "event_organizer__Hangar": "null"
+  },
+  {
+    "web-scraper-order": "1522311750-101",
+    "web-scraper-start-url": "https://hangar.org/es/category/programa-hangar/formacio-continua/",
+    "event_title": "INDISCIPLINAS CREATIVAS Saberes Compartidos e Inteligencias Colectivas",
+    "event_text": "11, 12 y 13 junio",
+    "event_start": "11, 12 y 13 junio",
+    "event_end": "11, 12 y 13 junio",
+    "event_venue__Hangar": "null",
+    "event_link": "",
+    "event_link-href": "https://hangar.org/es/news/indisciplines-creatives-sabers-compartits-i-intelligencies-collectives/",
+    "event_category__Actividad__Espacios alternativos__Taller": "null",
+    "event_maplink__1": "null",
+    "event_cost__": "null",
+    "event_id": "https://hangar.org/es/news/indisciplines-creatives-sabers-compartits-i-intelligencies-collectives/",
+    "event_image-src": "https://hangar.org/webnou/wp-content/uploads/2018/03/Imagen_Indisciplinas-Creativas05-200x150.jpg",
+    "event_organizer__Hangar": "null"
+  }
+]

@@ -1,0 +1,34 @@
+[
+  {
+    "web-scraper-start-url": "http://www.museunacional.cat/es/exposiciones-futuras",
+    "event_link": "El arte a las puertas del 68: Pop y nuevas prácticas artísticas en Cataluña",
+    "event_link-href": "http://www.museunacional.cat/es/el-arte-las-puertas-del-68-pop-y-nuevas-practicas-artisticas-en-catalunya",
+    "event_title": "El arte a las puertas del 68: Pop y nuevas prácticas artísticas en Cataluña",
+    "event_image-src": "http://www.museunacional.cat/sites/default/files/images/field_exibition_images/norman_narotzky.jpg",
+    "event_text": "null",
+    "event_start": "null",
+    "event_end": "null",
+    "event_maplink__1": "null",
+    "event_cost__12": "null",
+    "event_organizer__MNAC": "null",
+    "event_venue__MNAC": "null",
+    "event_category__Exposición__MNAC__Arte Clásico__Próximas inauguraciones": "null",
+    "event_id": "El arte a las puertas del 68: Pop y nuevas prácticas artísticas en Cataluña"
+  },
+  {
+    "web-scraper-start-url": "http://www.museunacional.cat/es/exposiciones-futuras",
+    "event_link": "Habitación",
+    "event_link-href": "http://www.museunacional.cat/es/habitacion",
+    "event_title": "Habitación",
+    "event_image-src": "http://www.museunacional.cat/sites/default/files/images/field_exibition_images/ad05144.jpg",
+    "event_text": "null",
+    "event_start": "null",
+    "event_end": "null",
+    "event_maplink__1": "null",
+    "event_cost__12": "null",
+    "event_organizer__MNAC": "null",
+    "event_venue__MNAC": "null",
+    "event_category__Exposición__MNAC__Arte Clásico__Próximas inauguraciones": "null",
+    "event_id": "Habitación"
+  }
+]

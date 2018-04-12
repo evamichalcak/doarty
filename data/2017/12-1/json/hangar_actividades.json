@@ -1,0 +1,34 @@
+[
+  {
+    "web-scraper-start-url": "https://hangar.org/es/category/programa-hangar/formacio-continua/",
+    "event_title": "Taller intensivo “Adquisición y uso crítico del inglés para artistas y trabajadores de la cultura”",
+    "event_text": "16 y 17 diciembre",
+    "event_start": "16 y 17 diciembre",
+    "event_end": "16 y 17 diciembre",
+    "event_venue__Hangar": "null",
+    "event_link": "",
+    "event_link-href": "https://hangar.org/es/programa-hangar/formacio-continua/taller-adquisicio-i-lus-critic-de-l-angles-per-a-artistes-i-treballadors-de-la-cultura/",
+    "event_category__Actividad__Espacios alternativos__Taller": "null",
+    "event_maplink__1": "null",
+    "event_cost__": "null",
+    "event_id": "https://hangar.org/es/programa-hangar/formacio-continua/taller-adquisicio-i-lus-critic-de-l-angles-per-a-artistes-i-treballadors-de-la-cultura/",
+    "event_image-src": "https://hangar.org/webnou/wp-content/uploads/2017/07/angles-200x150.jpg",
+    "event_organizer__Hangar": "null"
+  },
+  {
+    "web-scraper-start-url": "https://hangar.org/es/category/programa-hangar/formacio-continua/",
+    "event_title": "Taller gratuito de edición con Adobe Premiere",
+    "event_text": "28 y 30 de noviembre 2017 - Hangar",
+    "event_start": "28 y 30 de noviembre 2017 - Hangar",
+    "event_end": "28 y 30 de noviembre 2017 - Hangar",
+    "event_venue__Hangar": "null",
+    "event_link": "",
+    "event_link-href": "https://hangar.org/es/news/taller-gratuit-dedicio-amb-adobe-premiere/",
+    "event_category__Actividad__Espacios alternativos__Taller": "null",
+    "event_maplink__1": "null",
+    "event_cost__": "null",
+    "event_id": "https://hangar.org/es/news/taller-gratuit-dedicio-amb-adobe-premiere/",
+    "event_image-src": "https://hangar.org/webnou/wp-content/uploads/2017/11/3kikol-200x150.jpeg",
+    "event_organizer__Hangar": "null"
+  }
+]

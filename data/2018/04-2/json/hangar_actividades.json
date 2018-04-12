@@ -1,0 +1,36 @@
+[
+  {
+    "web-scraper-order": "1523520302-81",
+    "web-scraper-start-url": "https://hangar.org/es/category/programa-hangar/formacio-continua/",
+    "event_title": "El cine-ensayo (o la forma peligrosa de mezclar lo personal con el presente) a cargo de Andrés Duque",
+    "event_text": "6 marzo - 17 abril 2018",
+    "event_start": "6 marzo - 17 abril 2018",
+    "event_end": "6 marzo - 17 abril 2018",
+    "event_venue__Hangar": "null",
+    "event_link": "",
+    "event_link-href": "https://hangar.org/es/programa-hangar/formacio-continua/curs-el-cinema-assaig-o-la-forma-perillosa-de-barrejar-allo-personal-amb-el-present-a-carrec-dandres-duque/",
+    "event_category__Actividad__Espacios alternativos__Taller": "null",
+    "event_maplink__1": "null",
+    "event_cost__": "null",
+    "event_id": "https://hangar.org/es/programa-hangar/formacio-continua/curs-el-cinema-assaig-o-la-forma-perillosa-de-barrejar-allo-personal-amb-el-present-a-carrec-dandres-duque/",
+    "event_image-src": "https://hangar.org/webnou/wp-content/uploads/2015/07/IMG_0696-200x150.jpg",
+    "event_organizer__Hangar": "null"
+  },
+  {
+    "web-scraper-order": "1523520352-90",
+    "web-scraper-start-url": "https://hangar.org/es/category/programa-hangar/formacio-continua/",
+    "event_title": "Taller de oráculos: autoconstrucción, análisis y producción de herramientas para la gestión de la realidad",
+    "event_text": "9, 16, 23, 30 mayo 2018",
+    "event_start": "9, 16, 23, 30 mayo 2018",
+    "event_end": "9, 16, 23, 30 mayo 2018",
+    "event_venue__Hangar": "null",
+    "event_link": "",
+    "event_link-href": "https://hangar.org/es/workshops-artist2artists/taller-doracles-autoconstruccio-analisi-i-produccio-deines-per-a-la-gestio-de-la-realitat/",
+    "event_category__Actividad__Espacios alternativos__Taller": "null",
+    "event_maplink__1": "null",
+    "event_cost__": "null",
+    "event_id": "https://hangar.org/es/workshops-artist2artists/taller-doracles-autoconstruccio-analisi-i-produccio-deines-per-a-la-gestio-de-la-realitat/",
+    "event_image-src": "https://hangar.org/webnou/wp-content/uploads/2018/03/oraculos-200x150.jpg",
+    "event_organizer__Hangar": "null"
+  }
+]

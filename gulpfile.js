@@ -7,14 +7,10 @@ var exec = require('child_process').exec;
 var convertEncoding = require('gulp-convert-encoding');
 
 
-
-<<<<<<< HEAD
-var dir = '2017\\09-2';
-=======
-var dir = '2017\\08-1';
->>>>>>> 7bc47ef93d4c65259fc0f8ec9402fdeffcefd917
-
+//*
+var dir = '2018\\04-2';
 var predir= './data/';
+//*/
 
 /*
 dir = 'BCN_EN\\2017\\02-2';
@@ -22,7 +18,7 @@ predir= './data/';
 //*/
 
 /*
-dir = 'ZH\\2017\\03-1';
+dir = '2017\\ZH-11';
 predir= './data/';
 //*/
 

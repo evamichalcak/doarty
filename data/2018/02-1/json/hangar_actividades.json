@@ -1,0 +1,36 @@
+[
+  {
+    "web-scraper-order": "1517593683-71",
+    "web-scraper-start-url": "https://hangar.org/es/category/programa-hangar/formacio-continua/",
+    "event_title": "Taller “Paisajes Olfativos” a cargo de Klara Ravat",
+    "event_text": "11 y 12 mayo 2018",
+    "event_start": "11 y 12 mayo 2018",
+    "event_end": "11 y 12 mayo 2018",
+    "event_venue__Hangar": "null",
+    "event_link": "",
+    "event_link-href": "https://hangar.org/es/workshops-artist2artists/espanol-taller-paisajes-olfativos-a-cargo-de-klara-ravat/",
+    "event_category__Actividad__Espacios alternativos__Taller": "null",
+    "event_maplink__1": "null",
+    "event_cost__": "null",
+    "event_id": "https://hangar.org/es/workshops-artist2artists/espanol-taller-paisajes-olfativos-a-cargo-de-klara-ravat/",
+    "event_image-src": "https://hangar.org/webnou/wp-content/uploads/2017/05/20160903-workshop-the-scent-of-amsterdam_29353128041_o-200x150.jpg",
+    "event_organizer__Hangar": "null"
+  },
+  {
+    "web-scraper-order": "1517593690-72",
+    "web-scraper-start-url": "https://hangar.org/es/category/programa-hangar/formacio-continua/",
+    "event_title": "Taller “Social Net Wok. Recetas para habitar (o destruir) el planeta digital” a cargo de Christina Schultz",
+    "event_text": "16, 17, 24, 31  mayo 2018",
+    "event_start": "16, 17, 24, 31  mayo 2018",
+    "event_end": "16, 17, 24, 31  mayo 2018",
+    "event_venue__Hangar": "null",
+    "event_link": "",
+    "event_link-href": "https://hangar.org/es/news/taller-social-net-wok-recetas-para-habitar-o-destruir-el-planeta-digital-a-cargo-de-christina-schultz/",
+    "event_category__Actividad__Espacios alternativos__Taller": "null",
+    "event_maplink__1": "null",
+    "event_cost__": "null",
+    "event_id": "https://hangar.org/es/news/taller-social-net-wok-recetas-para-habitar-o-destruir-el-planeta-digital-a-cargo-de-christina-schultz/",
+    "event_image-src": "https://hangar.org/webnou/wp-content/uploads/2018/01/TuVidaDigital5-200x150.jpg",
+    "event_organizer__Hangar": "null"
+  }
+]
