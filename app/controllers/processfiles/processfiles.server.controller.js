@@ -314,8 +314,14 @@ var helpers = {
 				break;
 	    }
     },
+    formatJSDate: function(jsDate) { 
+    	// from a javascript Date returns a dateObject with day, month and year properties into a string with the format mm/dd/yyyy
+    	var dateString = "";
+    	dateString = ("0" + (jsDate.getMonth() + 1)).slice(-2) + "/" + ("0" + jsDate.getDate()).slice(-2) + "/" + jsDate.getFullYear();
+    	return dateString;
+    },
     formatDate: function(dateObject) { //tested
-    	// turns a dateObject with day, month and year properties into a string with the format mm/dd/yyyy
+    	// from our custom dateObject returns a dateObject with day, month and year properties into a string with the format mm/dd/yyyy
     	var dateString = "";
     	var y;
 
@@ -537,8 +543,14 @@ var helpers = {
 			timeSeparator = obj['event_date-time-separator'];
 		}
 
-		// get both formatted dates
-		arr = this.processDate(obj['event_start'], obj['event_end'], timeSeparator);
+		//temporary hack scraping facebook events insteat importing via api
+		if (this.checkKey(obj['event_facebooktime'])) {
+			var ttaa = obj['event_facebooktime'].split(' to ');
+			arr = [this.formatJSDate(new Date(ttaa[0].replace(/ /g, "T"))), this.formatJSDate(new Date(ttaa[1].replace(/ /g, "T")))];
+		} else {
+			// get both formatted dates, as usuall
+			arr = this.processDate(obj['event_start'], obj['event_end'], timeSeparator);
+		}
 		// add event_start
 		eventObj['event_start'] = arr[0];
 		// add event_end
