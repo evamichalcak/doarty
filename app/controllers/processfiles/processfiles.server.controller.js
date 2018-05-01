@@ -546,7 +546,10 @@ var helpers = {
 		//temporary hack scraping facebook events insteat importing via api
 		if (this.checkKey(obj['event_facebooktime'])) {
 			var ttaa = obj['event_facebooktime'].split(' to ');
-			arr = [this.formatJSDate(new Date(ttaa[0].replace(/ /g, "T"))), this.formatJSDate(new Date(ttaa[1].replace(/ /g, "T")))];
+			arr = [this.formatJSDate(new Date(ttaa[0].replace(/ /g, "T")))];
+			if (ttaa.length > 1) {
+				arr.push(this.formatJSDate(new Date(ttaa[1].replace(/ /g, "T"))));
+			}
 		} else {
 			// get both formatted dates, as usuall
 			arr = this.processDate(obj['event_start'], obj['event_end'], timeSeparator);
