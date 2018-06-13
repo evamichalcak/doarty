@@ -1,0 +1,36 @@
+[
+  {
+    "web-scraper-order": "1527239251-177",
+    "web-scraper-start-url": "http://www.museunacional.cat/es/exposiciones-futuras",
+    "event_link": "Habitación",
+    "event_link-href": "http://www.museunacional.cat/es/habitacion",
+    "event_title": "Habitación",
+    "event_image-src": "http://www.museunacional.cat/sites/default/files/images/field_exibition_images/ad05144.jpg",
+    "event_text": "null",
+    "event_start": "09/01/18",
+    "event_end": "10/01/18",
+    "event_maplink__1": "null",
+    "event_cost__12": "null",
+    "event_organizer__MNAC": "null",
+    "event_venue__MNAC": "null",
+    "event_category__Exposición__MNAC__Arte Clásico__Próximas inauguraciones": "null",
+    "event_id": "Habitación"
+  },
+  {
+    "web-scraper-order": "1527239249-176",
+    "web-scraper-start-url": "http://www.museunacional.cat/es/exposiciones-futuras",
+    "event_link": "LIBERXINA, Pop y nuevas prácticas artísticas en Cataluña",
+    "event_link-href": "http://www.museunacional.cat/es/el-arte-las-puertas-del-68-pop-y-nuevas-practicas-artisticas-en-catalu%C3%B1a",
+    "event_title": "LIBERXINA, Pop y nuevas prácticas artísticas en Cataluña",
+    "event_image-src": "http://www.museunacional.cat/sites/default/files/images/field_exibition_images/norman_narotzky.jpg",
+    "event_text": "null",
+    "event_start": "11/16/2018",
+    "event_end": "03/31/19",
+    "event_maplink__1": "null",
+    "event_cost__12": "null",
+    "event_organizer__MNAC": "null",
+    "event_venue__MNAC": "null",
+    "event_category__Exposición__MNAC__Arte Clásico__Próximas inauguraciones": "null",
+    "event_id": "LIBERXINA, Pop y nuevas prácticas artísticas en Cataluña"
+  }
+]

@@ -1,5 +1,5 @@
-﻿web-scraper-order,web-scraper-start-url,event_link,event_link-href,event_text,event_title2,event_title1,event_start,event_end,event_image-src,event_maplink__1,event_cost__0,event_organizer__Arts Santa Mónica,event_venue__Arts Santa Mónica,event_id,event_category__Exposición__Arts Santa Mónica__Próximas inauguraciones
-"1526030059-179","http://artssantamonica.gencat.cat/es/exposicions/index.html","","http://artssantamonica.gencat.cat/es/detall/Silenci-s","Una aproximació al concepte de silenci des de les personals perspectives de diferents artistes.
+web-scraper-order,web-scraper-start-url,event_link,event_link-href,event_text,event_title2,event_title1,event_start,event_end,event_image-src,event_maplink__1,event_cost__0,event_organizer__Arts Santa Mónica,event_venue__Arts Santa Mónica,event_id,event_category__Exposición__Arts Santa Mónica__Próximas inauguraciones
+1526030059-179,http://artssantamonica.gencat.cat/es/exposicions/index.html,,http://artssantamonica.gencat.cat/es/detall/Silenci-s,"Una aproximació al concepte de silenci des de les personals perspectives de diferents artistes.
 
 Espais físics. El silenci com a buit.
 El silenci des d’un vessant físic i corpori.
@@ -13,6 +13,4 @@ sordes o de pedres flotants en el temps.
 La cultura.
 El llenguatge i el silenci com a elements vertebradors del pensament, la cultura i l'art.
 El silenci com a mort.
-El buit, l'absència i la pèrdua. El final de la vida i la relació amb el que queda. El silenci com a element d'inici i final.","null","Silenci/s","08.05-08.07.2018","08.05-08.07.2018","/web/.content/Imatge/2018/Exposicions/Silencis/Albert-Bayona-saladas.jpg_356955165.jpg","null","null","null","null","/es/detall/Silenci-s","null"
-"1526030061-180","http://artssantamonica.gencat.cat/es/exposicions/index.html","","http://artssantamonica.gencat.cat/es/detall/Pompeu-Fabra.-Una-llengua-completa","L'any 2018, per acord del Govern de la Generalitat de Catalunya, està dedicat a commemorar la figura i l'obra de Pompeu Fabra, per celebrar els 150 anys del naixement del lingüista i gramàtic català més il·lustre i el centenari de la publicació de la Gramàtica catalana.  
-A través de l’exposició descobrirem la seva aportació a la llengua catalana i el gran arrelament social de la seva figura i obra arreu de Catalunya. Gràcies a Pompeu Fabra els territoris de parla catalana disposem d’una llengua completa, vital, codificada, consensuada i amb projecció de futur.","null","Pompeu Fabra. Una llengua completa","17.05-07.07.2018","17.05-07.07.2018","/web/.content/Imatge/2018/Exposicions/Pompeu-Fabra/impacte_fabra-606x420.jpg_356955165.jpg","null","null","null","null","/es/detall/Pompeu-Fabra.-Una-llengua-completa","null"
+El buit, l'absència i la pèrdua. El final de la vida i la relació amb el que queda. El silenci com a element d'inici i final.",null,Silenci/s,08.05-08.07.2018,08.05-08.07.2018,/web/.content/Imatge/2018/Exposicions/Silencis/Albert-Bayona-saladas.jpg_356955165.jpg,null,null,null,null,/es/detall/Silenci-s,null

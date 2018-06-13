@@ -1,0 +1,38 @@
+[
+  {
+    "web-scraper-order": "1528238061-176",
+    "web-scraper-start-url": "http://artssantamonica.gencat.cat/es/exposicions/index.html",
+    "event_link": "",
+    "event_link-href": "http://artssantamonica.gencat.cat/es/detall/auto-matic",
+    "event_text": "La exposición presenta el trabajo de Machinic Protocols, una línea de investigación del Instituto de Arquitectura Avanzada de Cataluña dirigida por el arquitecto Edouard Cabay. El trabajo presentado plantea los límites y posibilidades del dibujo generado a partir de datos tratados matemáticamente y mecánicamente frente al dibujo tradicional; genera cuestiones sobre la reproductividad, el rol del azar y del accidente como fuente de experimentación creativa.",
+    "event_title2": "null",
+    "event_title1": "auto-màtic",
+    "event_start": "29.06 - 02.09.2018",
+    "event_end": "29.06 - 02.09.2018",
+    "event_image-src": "/web/.content/Imatge/2018/Exposicions/Auto-matic/Auto-matic_a_606x420.jpg_356955165.jpg",
+    "event_maplink__1": "null",
+    "event_cost__0": "null",
+    "event_organizer__Arts Santa Mónica": "null",
+    "event_venue__Arts Santa Mónica": "null",
+    "event_id": "/es/detall/auto-matic",
+    "event_category__Exposición__Arts Santa Mónica__Próximas inauguraciones": "null"
+  },
+  {
+    "web-scraper-order": "1528238063-177",
+    "web-scraper-start-url": "http://artssantamonica.gencat.cat/es/exposicions/index.html",
+    "event_link": "",
+    "event_link-href": "http://artssantamonica.gencat.cat/es/detall/Convivencia",
+    "event_text": "Una mostra col·lectiva de fotografia creativa en la qual participen catorze fotògrafs del Camp de Tarragona.\nUna posada en valor i una reflexió sobre els catorze monuments del patrimoni romà de Tarragona inclosos en la declaració de la UNESCO de l’any 2000 com a Patrimoni de la Humanitat.\nCom conviuen uns monuments fets i dissenyats per a uns usos determinats fa dos mil anys amb la nostra societat actual?\nÉs una bona convivència o una mala convivència?\nEls catorze fotògrafs ens ajuden a formar-nos opinió.\nFotògrafs i fotografíes:\nFerran Aguilar / Pedrera del Mèdol\nGerard Boyer / Teatre\nJordi Brú / Torre dels Escipions\nJorge Conde / Necròpolis Paleocristiana\nRamon Cornadó / Muralles\nPep Escoda / Fòrum Provincial\nMontse Ferré / Aqüeducte\nRam Giner / Vil·la dels Munts\nRafael López-Monné / Amfiteatre\nVerònica Moragas / Recinte de culte\nRubén Perdomo / Fòrum de la Colonia\nMontse Riera / Arc de Berà\nLaura Rodríguez / Circ\nCristina Serra / Vil·la-Mausoleu de Centcelles",
+    "event_title2": "Creació, Patrimoni de la Humanitat i contemporaneïtat a través dels ulls de catorze fotògrafs tarragonins",
+    "event_title1": "Convivència",
+    "event_start": "31.05-15.07.2018",
+    "event_end": "31.05-15.07.2018",
+    "event_image-src": "/web/.content/Imatge/2018/Exposicions/Convivencia/Convivencia1.jpg_356955165.jpg",
+    "event_maplink__1": "null",
+    "event_cost__0": "null",
+    "event_organizer__Arts Santa Mónica": "null",
+    "event_venue__Arts Santa Mónica": "null",
+    "event_id": "/es/detall/Convivencia",
+    "event_category__Exposición__Arts Santa Mónica__Próximas inauguraciones": "null"
+  }
+]
