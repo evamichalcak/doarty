@@ -1,0 +1,38 @@
+[
+  {
+    "web-scraper-order": "1530775345-94",
+    "web-scraper-start-url": "http://www.macba.cat/es/actividades",
+    "event_title1": "Mercè 2018: Jornada de puertas abiertas",
+    "event_title2": "Fiestas de la Mercè",
+    "event_image-src": "/uploads/20180702/Mercn__2018_Web.3.jpg",
+    "event_text": "Con motivo de la fiesta de La Mercè, se podrán visitar gratuitamente las siguientes exposiciones: Melanie Smith. Farsa y artificio y Colección MACBA. Bajo la superficie. \n\n\n\nMás información: Exposiciones\n\n\n\nMACBA BOOKS week\n\nDel 19 al 24 de septiembre venta especial de publicaciones del MACBA en el MACBA Store Laie al precio único de 6 euros.",
+    "event_start": "24 sep. 2018",
+    "event_end": "null",
+    "event_venue": "",
+    "event_link": "",
+    "event_link-href": "https://www.macba.cat/es/fiestas-merce-2018-jornada-puertas-abiertas/1//activ",
+    "event_organizer__MACBA": "null",
+    "event_category__Actividad__MACBA": "null",
+    "event_maplink__1": "null",
+    "event_cost__": "null",
+    "event_id": "/es/fiestas-merce-2018-jornada-puertas-abiertas/1//activ"
+  },
+  {
+    "web-scraper-order": "1530775349-96",
+    "web-scraper-start-url": "http://www.macba.cat/es/actividades",
+    "event_title1": "Melanie Smith. Pathosformel e imagen superviviente",
+    "event_title2": "Conferencia a cargo de José Luis Barrios",
+    "event_image-src": "/uploads/20180702/Melanie_Pahotosphormel.5.jpg",
+    "event_text": "Si algo caracteriza la poética de Melanie Smith es el modo en que elabora su crítica a la modernidad y la contemporaneidad artística, a partir de mostrar la supervivencia de expresiones, motivos y afectos estéticos y formales que se anudan y despliegan en contextos sociales donde pareciera que no tienen cabida. Su trabajo explora los modos en que estas «imágenes supervivientes» están latentes en las formas vitales y existenciales de lugares que tienden a ser leídos por su mero exotismo. En el contexto del arte contemporáneo de México, el trabajo de Melanie Smith (Inglaterra, 1965) destaca por ser un ejercicio deconstructivo y genealógico de la historia del arte occidental. Del arte minimalista al surrealismo de James, del muralismo de Rivera a la pintura del Bosco y de Bruegel, para esta artista la función estética de la historia del arte es la que tiene que ver con el modo en que la memoria y el presente se cruzan en la materialidad del arte.\n\n\n\nJosé Luis Barrios Lara es filósofo e historiador del arte. Profesor de la Universidad Iberoamericana y de la Universidad Nacional Autónoma de México y curador asociado del Museo Universitario Arte Contemporáneo (MuAC).",
+    "event_start": "17 sep. 2018",
+    "event_end": "null",
+    "event_venue": "",
+    "event_link": "",
+    "event_link-href": "https://www.macba.cat/es/melanie-smith-pathosformel-e-imagen-superviviente/1//activ",
+    "event_organizer__MACBA": "null",
+    "event_category__Actividad__MACBA": "null",
+    "event_maplink__1": "null",
+    "event_cost__": "null",
+    "event_id": "/es/melanie-smith-pathosformel-e-imagen-superviviente/1//activ"
+  }
+]
