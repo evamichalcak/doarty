@@ -1,0 +1,38 @@
+[
+  {
+    "web-scraper-order": "1537084924-13",
+    "web-scraper-start-url": "http://www.cccb.org/es/actividades/actuales/2",
+    "event_link": "Encuentro con Hanif Kureishi",
+    "event_link-href": "http://www.cccb.org/es/actividades/ficha/encuentro-con-hanif-kureishi/229473",
+    "event_title1": "Encuentro con Hanif Kureishi",
+    "event_image-src": "http://www.cccb.org/rcs_gene/HanifKureishi__c_Kier_Kureishi_1000x560px.jpg",
+    "event_text": "Aprovechando la presentación en catalán y castellano de su última novela Nada de Nada, el escritor británico Hanif Kureishi, autor de libros como El buda de los suburbios y Algo que contarte, y guionista de películas como Sammy y Rosie se lo montan y Mi preciosa lavandería, conversa con la escritora Alicia Kopf.",
+    "event_organizer__CCCB": "null",
+    "event_maplink__1": "null",
+    "event_cost__": "null",
+    "event_venue__CCCB": "null",
+    "event_category__CCCB__Actividad": "null",
+    "event_id": "http://www.cccb.org/es/actividades/ficha/encuentro-con-hanif-kureishi/229473",
+    "event_title2": "El polifacético escritor británico conversa con Alicia Kopf",
+    "event_start": "3 octubre 2018",
+    "event_end": "3 octubre 2018"
+  },
+  {
+    "web-scraper-order": "1537084911-7",
+    "web-scraper-start-url": "http://www.cccb.org/es/actividades/actuales/2",
+    "event_link": "Rituales del presente y del pasado",
+    "event_link-href": "http://www.cccb.org/es/actividades/ficha/rituales-del-presente-y-del-pasado/229818",
+    "event_title1": "Rituales del presente y del pasado",
+    "event_image-src": "http://www.cccb.org/rcs_gene/akauzazte.jpg",
+    "event_text": "En el marco de la exposición «La luz negra», la asociación cultural Màgia Roja presenta en el CCCB una tarde dedicada al ritual y la catarsis.",
+    "event_organizer__CCCB": "null",
+    "event_maplink__1": "null",
+    "event_cost__": "null",
+    "event_venue__CCCB": "null",
+    "event_category__CCCB__Actividad": "null",
+    "event_id": "http://www.cccb.org/es/actividades/ficha/rituales-del-presente-y-del-pasado/229818",
+    "event_title2": "Concierto de Akauzazte y performance de Evohé & Sére Skuld",
+    "event_start": "6 octubre 2018",
+    "event_end": "6 octubre 2018"
+  }
+]

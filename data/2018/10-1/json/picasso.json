@@ -1,0 +1,50 @@
+[
+  {
+    "web-scraper-order": "1537821641-2",
+    "web-scraper-start-url": "http://www.bcn.cat/museupicasso/es/exposiciones/encurso.html",
+    "event_link": "PABLO PICASSO Y LOS EDITORES GUSTAVO GILI  23 de noviembre de 2018 - 24 de febrero de 2019",
+    "event_link-href": "http://www.bcn.cat/museupicasso/es/exposiciones/pablo-picasso-y-los-editores-gustavo-gili.html",
+    "event_start": "23 de noviembre de 2018 - 24 de febrero de 2019",
+    "event_end": "23 de noviembre de 2018 - 24 de febrero de 2019",
+    "event_title": "PABLO PICASSO Y LOS EDITORES GUSTAVO GILI",
+    "event_image-src": "http://www.bcn.cat/museupicasso/imatges/exposicions/Futures/gustau-picasso-la-colombe-th.jpg",
+    "event_venue__Museo Picasso": "null",
+    "event_organizer__Museo Picasso": "null",
+    "event_category__Exposición__Arte Clásico__Museo Picasso": "null",
+    "event_cost__0": "null",
+    "event_maplink__1": "null",
+    "event_id": "null"
+  },
+  {
+    "web-scraper-order": "1537821643-3",
+    "web-scraper-start-url": "http://www.bcn.cat/museupicasso/es/exposiciones/encurso.html",
+    "event_link": "PICASSO DESCUBRE PARIS 21 de septiembre de 2018 - \n6 de enero de 2019",
+    "event_link-href": "http://www.bcn.cat/museupicasso/es/exposiciones/picasso-descubre-paris.html",
+    "event_start": "21 de septiembre de 2018 - \n6 de enero de 2019",
+    "event_end": "21 de septiembre de 2018 - \n6 de enero de 2019",
+    "event_title": "Picasso descubre París",
+    "event_image-src": "http://www.bcn.cat/museupicasso/imatges/exposicions/Futures/pablo-picasso-contemplant-torre-eiffel-th.jpg",
+    "event_venue__Museo Picasso": "null",
+    "event_organizer__Museo Picasso": "null",
+    "event_category__Exposición__Arte Clásico__Museo Picasso": "null",
+    "event_cost__0": "null",
+    "event_maplink__1": "null",
+    "event_id": "null"
+  },
+  {
+    "web-scraper-order": "1537821639-1",
+    "web-scraper-start-url": "http://www.bcn.cat/museupicasso/es/exposiciones/encurso.html",
+    "event_link": "SABARTÉS POR PICASSO POR SABARTÉS  23 de noviembre de 2018 - 24 de febrero de 2019",
+    "event_link-href": "http://www.bcn.cat/museupicasso/es/exposiciones/sabartes-por-picasso-por-sabartes.html",
+    "event_start": "23 de noviembre de 2018 - 24 de febrero de 2019",
+    "event_end": "23 de noviembre de 2018 - 24 de febrero de 2019",
+    "event_title": "SABARTÉS POR PICASSO POR SABARTÉS",
+    "event_image-src": "http://www.bcn.cat/museupicasso/imatges/exposicions/Futures/pablo-picasso-sabartes-i-jacqueline-pierreux-th.jpg",
+    "event_venue__Museo Picasso": "null",
+    "event_organizer__Museo Picasso": "null",
+    "event_category__Exposición__Arte Clásico__Museo Picasso": "null",
+    "event_cost__0": "null",
+    "event_maplink__1": "null",
+    "event_id": "null"
+  }
+]
