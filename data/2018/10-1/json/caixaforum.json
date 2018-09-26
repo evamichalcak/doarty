@@ -1,0 +1,36 @@
+[
+  {
+    "web-scraper-order": "1537973639-5",
+    "web-scraper-start-url": "https://caixaforum.es/es/barcelona/exposiciones?p_p_id=webcentrosexposicioneslistportlet_WAR_webcentrosexposicioneslistportlet&p_p_lifecycle=1&p_p_state=normal&p_p_mode=view&p_p_col_id=column-1&p_p_col_count=1&_webcentrosexposicioneslistportlet_WAR_webcentrosexposicioneslistportlet_javax.portlet.action=searchLandingFormAction",
+    "event_link": "Toulouse-Lautrec y el espíritu de Montmartre",
+    "event_link-href": "https://caixaforum.es/es/barcelona/fichaexposicion?entryId=544677",
+    "event_image-src": "/documents/20924/24359/expo+montmartre+cast+mini/3e5178ef-e730-825e-0694-9f1a70ddfc5b",
+    "event_start": "Del 18 de octubre de 2018 al 20 de enero de 2019",
+    "event_end": "Del 18 de octubre de 2018 al 20 de enero de 2019",
+    "event_text": "Las calles, los cabarets y los cafés del barrio de Montmartre fueron escenario de una explosión creativa, marcada por la bohemia y la vanguardia de la mano de jóvenes artistas e intelectuales que desafiaron a lo establecido. Henri de Toulouse-Lautrec (Albi, 1864 - Château Malromé, 1901) y otros artistas como Vincent van Gogh, Jean-Louis Forain, T. A. Steinlen, Pierre Bonnard o Édouard Vuillard contribuyeron a este florecimiento de un movimiento rompedor al margen de la burguesía.",
+    "event_category__CaixaForum__Exposición__Próximas inauguraciones": "null",
+    "event_maplink__1": "null",
+    "event_organizer__CaixaForum": "null",
+    "event_venue__CaixaForum": "null",
+    "event_cost__4": "null",
+    "event_id": "fichaexposicion?entryId=544677",
+    "event_title1": "Toulouse-Lautrec y el espíritu de Montmartre"
+  },
+  {
+    "web-scraper-order": "1537973636-4",
+    "web-scraper-start-url": "https://caixaforum.es/es/barcelona/exposiciones?p_p_id=webcentrosexposicioneslistportlet_WAR_webcentrosexposicioneslistportlet&p_p_lifecycle=1&p_p_state=normal&p_p_mode=view&p_p_col_id=column-1&p_p_col_count=1&_webcentrosexposicioneslistportlet_WAR_webcentrosexposicioneslistportlet_javax.portlet.action=searchLandingFormAction",
+    "event_link": "Max Beckmann. Leipzig, 1884 - Nueva York, 1950",
+    "event_link-href": "https://caixaforum.es/es/barcelona/fichaexposicion?entryId=573200",
+    "event_image-src": "/documents/20924/24359/max+beckmann+expo+cast+mini/491c3215-cc30-02b2-185c-58d84334ade2",
+    "event_start": "Del 21 de febrero al 26 de mayo de 2019",
+    "event_end": "Del 21 de febrero al 26 de mayo de 2019",
+    "event_text": "Realizada en colaboración con el Museo Nacional Thyssen-Bornemisza, la muestra plantea un recorrido temático por la obra de Max Beckmann (Leipzig, 1884 - Nueva York, 1950) dividido en dos secciones. La primera cubre la etapa en Alemania desde los años anteriores a la Primera Guerra Mundial, cuando comienza a ser reconocido, hasta el ascenso del fascismo en la década de 1930, cuando es expulsado de la escuela de arte de Frankfurt y se le impide exponer sus obras.",
+    "event_category__CaixaForum__Exposición__Próximas inauguraciones": "null",
+    "event_maplink__1": "null",
+    "event_organizer__CaixaForum": "null",
+    "event_venue__CaixaForum": "null",
+    "event_cost__4": "null",
+    "event_id": "fichaexposicion?entryId=573200",
+    "event_title1": "Max Beckmann. Leipzig, 1884 - Nueva York, 1950"
+  }
+]
